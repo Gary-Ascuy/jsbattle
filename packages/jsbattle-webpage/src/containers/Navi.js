@@ -124,7 +124,7 @@ export class Navi extends React.Component {
           <span className="navbar-toggler-icon"></span>
         </button>
         <a className="navbar-brand" href="http://localhost:9000" style={{borderRight: '1px solid #888', paddingRight: '15px'}}>
-          <img src="./img/logo.png" alt="JsBattle" />
+          <img style={{ width: '77px', height: '25px' }} src="./img/logo.png" alt="JsBattle" />
         </a>
         {this.renderControls()}
     </nav>;
