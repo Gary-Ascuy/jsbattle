@@ -54,6 +54,22 @@ canvas {
   border-radius: 4px;
 }
 
+#root.container-fluid {
+  padding: 0px;
+}
+
+nav.navbar.navbar-dark.bg-dark {
+  background-color: #0c5fb1 !important;;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.8);
+}
+
+div.navbar-collapse {
+  padding: 15px 0px;
+}
+
 .nav-item > .active {
   background-color: #ffffff;
   color: #343a40 !important;
