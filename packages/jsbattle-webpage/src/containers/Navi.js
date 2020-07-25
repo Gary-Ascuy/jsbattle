@@ -62,27 +62,27 @@ export class Navi extends React.Component {
           <a
             className={pathname.startsWith('/challenge') ? activeClasses : inactiveClasses}
             href="#/challenge">
-            <i className="fas fa-flask" aria-hidden="true"></i> Challenges
+            Challenges
           </a>
         </li>
         <li className="nav-item">
           <a
             className={pathname.startsWith('/sandbox') ? activeClasses : inactiveClasses}
             href="#/sandbox">
-            <i className="fas fa-drafting-compass" aria-hidden="true"></i> Sandbox
+            Sandbox
           </a>
         </li>
         <li className="nav-item">
           <a
             className={pathname.startsWith('/league') ? activeClasses : inactiveClasses}
             href="#/league">
-            <i className="fas fa-trophy" aria-hidden="true"></i> League
+            League
           </a>
         </li>
         <li className="nav-item">
           <a className={inactiveClasses} href="./docs" target="_blank">
-            <i className="far fa-file-alt" aria-hidden="true"></i> Docs<
-          /a>
+            Docs
+          </a>
         </li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
@@ -100,7 +100,7 @@ export class Navi extends React.Component {
           </div>
         </li>
         <li className="nav-item dropdown">
-          <span className="clickable dropdown-toggle sim-speed-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fas fa-tachometer-alt"></i> {this.speedToName(this.props.simSpeed)} <span className="caret"></span></span>
+          <span className="clickable dropdown-toggle sim-speed-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{this.speedToName(this.props.simSpeed)} <span className="caret"></span></span>
           <div className="dropdown-menu dropdown-menu-right">
             {this.renderSpeedButton(0.05)}
             {this.renderSpeedButton(0.3)}
