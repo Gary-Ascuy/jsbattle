@@ -100,7 +100,7 @@ export class Navi extends React.Component {
           </div>
         </li>
         <li className="nav-item dropdown">
-          <span className="clickable dropdown-toggle sim-speed-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{this.speedToName(this.props.simSpeed)} <span className="caret"></span></span>
+          <span className="clickable dropdown-toggle sim-speed-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fas fa-tachometer-alt"></i> {this.speedToName(this.props.simSpeed)} <span className="caret"></span></span>
           <div className="dropdown-menu dropdown-menu-right">
             {this.renderSpeedButton(0.05)}
             {this.renderSpeedButton(0.3)}
