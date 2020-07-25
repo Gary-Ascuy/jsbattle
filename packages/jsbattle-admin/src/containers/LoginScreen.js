@@ -70,9 +70,9 @@ class LoginScreen extends Component {
         <Container fluid="xl">
           <Row>
             <Col xl={12}>
-              <div style={{margin: 'auto', width: '100%', maxWidth: '330px', padding: '5em 1em', textAlign: 'center'}}>
+              <div style={{margin: 'auto', width: '100%', maxWidth: '330px', padding: '2em 1em', textAlign: 'center'}}>
                 <img style={{ width: '400px' }} src="./img/colombia/colombia-logo.png" alt="JsBattle" />
-                <h1>Please sign in</h1>
+                <h1>Please Sign-In</h1>
                 {buttons}
               </div>
             </Col>

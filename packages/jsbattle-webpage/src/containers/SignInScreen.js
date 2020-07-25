@@ -85,7 +85,7 @@ export class SignInScreen extends React.Component {
       margin: '0.2em'
     };
     return <FullRow>
-          <div style={{padding: '5em 1em', textAlign: 'center'}}>
+          <div style={{padding: '2em 1em', textAlign: 'center'}}>
             <img style={{ width: '400px' }} src="./img/colombia/colombia-logo.png" alt="JsBattle" />
             <h1>Please Sign-In</h1>
             {buttons}
