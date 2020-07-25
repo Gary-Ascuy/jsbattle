@@ -71,7 +71,7 @@ class LoginScreen extends Component {
           <Row>
             <Col xl={12}>
               <div style={{margin: 'auto', width: '100%', maxWidth: '330px', padding: '5em 1em', textAlign: 'center'}}>
-                <img src="./img/tank_login.png" alt="JsBattle" />
+                <img style={{ width: '400px' }} src="./img/colombia/colombia-logo.png" alt="JsBattle" />
                 <h1>Please sign in</h1>
                 {buttons}
               </div>

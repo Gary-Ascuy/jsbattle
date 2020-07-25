@@ -86,8 +86,8 @@ export class SignInScreen extends React.Component {
     };
     return <FullRow>
           <div style={{padding: '5em 1em', textAlign: 'center'}}>
-            <img src="./img/tank_login.png" alt="JsBattle" />
-            <h1>Please sign in</h1>
+            <img style={{ width: '400px' }} src="./img/colombia/colombia-logo.png" alt="JsBattle" />
+            <h1>Please Sign-In</h1>
             {buttons}
             <div style={separatorStyle}><div style={separatorLabelStyle}> OR </div></div>
             <div>
