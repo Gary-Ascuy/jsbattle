@@ -5,9 +5,32 @@
 You will need these before you start:
 
  - [**NodeJS**](https://nodejs.org/) - JsBattle is written in JavaScript so NodeJS and NPM are required
+ - Java SE Runtime Environment 8 or Above Version
+ 
+ Linux Commands
 
+ ```sh
+ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+ $ nvm install stable 
+ $ apt-get install openjdk-8-jre
+ ```
 
-## Install NPM package
+## Install From Repository
+
+Clone Repository
+```sh
+$ git clone https://github.com/gary-ascuy/jsbattle.git
+```
+
+NPM Commands:
+```sh
+$ npm install 
+$ npm run bootstrap 
+$ npm run build 
+$ npm start 
+```
+
+## Install NPM package ( Original Version )
 
 Install and start JsBattle:
 
