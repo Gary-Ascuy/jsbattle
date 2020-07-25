@@ -31,7 +31,7 @@ function processHtml(txt, level, sidebarContent) {
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>JsBattle Docs</title>
+    <title>Jala Colombia - jsBattle/Docs</title>
     <link rel="stylesheet" href="${root}style.css" type="text/css">
     <link rel="stylesheet" href="${root}highlight.css">
     <script src="${root}highlight.js"></script>
