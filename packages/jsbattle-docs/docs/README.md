@@ -1,6 +1,6 @@
 # JsBattle - JavaScript Programming Game
 
-![alt text](./img/screenshot.png)
+![Jala Colombia - jsBattle](https://jsbattle.jalacolombia.com/img/colombia/colombia-logo.png)
 
 ## About
 
@@ -21,3 +21,5 @@ Read [Getting Started](./getting_started.md) to learn how to build your first ta
 You will find more information about **JsBattle** in the [Manual](./manual/README.md)
 
 Want to extend or develop **JsBattle**? Read Original Docs from [Development Guide](https://jsbattle.jmrlab.com/docs/dev_guide/README.html)
+
+![alt text](./img/screenshot.png)
