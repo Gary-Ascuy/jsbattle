@@ -4,6 +4,9 @@ const authStrategies = {};
 authStrategies['github'] = require("passport-github2");
 authStrategies['facebook'] = require("passport-facebook");
 authStrategies['google'] = require("passport-google-oauth").OAuth2Strategy;
+// Jalasoft Jala One Login
+authStrategies['keycloak'] = require("passport-keycloak-oauth2-oidc").Strategy;
+
 const CustomStrategy = require("passport-custom");
 
 const mockUserData = {
@@ -43,6 +46,21 @@ function configStrategyMock(app, logger, broker, providerConfig, serviceConfig) 
   logger.info(`Authorization strategy added: Log in at ${serviceConfig.web.baseUrl}/auth/mock`);
 }
 
+function buildStrategyOptions(provider, serviceConfig){
+  const strategyOptions = {
+    clientID: provider.clientID,
+    clientSecret:provider.clientSecret,
+    callbackURL: serviceConfig.web.baseUrl + "/auth/" + provider.name + "/callback"
+  }
+
+  if (provider.name == 'keycloak') {
+    strategyOptions.authServerURL = provider.authServerURL
+    strategyOptions.realm = provider.realm
+  }
+
+  return strategyOptions
+}
+
 function configPassport(app, logger, broker, serviceConfig) {
   app.use(passport.initialize());
   if(serviceConfig.auth.providers.length == 0) {
@@ -58,11 +76,7 @@ function configPassport(app, logger, broker, serviceConfig) {
       throw Error(`Strategy ${provider.name} is not supported`);
     }
     passport.use(new AuthStrategy(
-      {
-        clientID: provider.clientID,
-        clientSecret:provider.clientSecret,
-        callbackURL: serviceConfig.web.baseUrl + "/auth/" + provider.name + "/callback"
-      },
+      buildStrategyOptions(provider, serviceConfig),
       (accessToken, refreshToken, profile, done) => {
         let email = '';
         if(profile.emails && profile.emails.length) {
