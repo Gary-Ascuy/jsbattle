@@ -34,6 +34,7 @@ class Tank {
     this._lastX = 0;
     this._lastY = 0;
     this._angle = 0;
+    this._hasShild = true;
     this._gunAngle = 0;
     this._radarAngle = 0;
     this._throttle = 0;
@@ -234,6 +235,10 @@ class Tank {
     return this._allySpot;
   }
 
+  get hasShild() {
+    this._hasShild;
+  }
+
   setThrottle(v) {
     this._throttle = Math.min(1, Math.max(-1, v));
   }
@@ -256,6 +261,10 @@ class Tank {
 
   setDebugData(v) {
     this._debugData = v;
+  }
+
+  setShild(v) {
+    this._hasShild = v ? true : false;
   }
 
   onWallHit() {

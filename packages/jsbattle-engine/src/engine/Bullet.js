@@ -57,7 +57,9 @@ export default class Bullet {
 
   onEnemyHit(enemy) {
     this._exploded = true;
-    enemy.onDamage(this._damage);
+    if (enemy.hasShild) {
+      enemy.onDamage(this._damage);
+    }
   }
 
   simulationStep() {
