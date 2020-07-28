@@ -230,6 +230,7 @@ export default class AiWrapper {
     self._controlData.SHOOT = Number(value.SHOOT);
     self._controlData.DEBUG = value.DEBUG;
     self._controlData.BOOST = value.BOOST ? 1 : 0;
+    self._controlData.SHILD = value.SHILD ? 1 : 0;
 
     self._controlData.THROTTLE = isNaN(self._controlData.THROTTLE) ? 0 : self._controlData.THROTTLE;
     self._controlData.TURN = isNaN(self._controlData.TURN) ? 0 : self._controlData.TURN;
@@ -245,6 +246,8 @@ export default class AiWrapper {
 
     self._tank.setThrottle(self._controlData.THROTTLE );
     self._tank.setBoost(self._controlData.BOOST );
+    self._tank.setShild(self._controlData.SHILD);
+    
     self._tank.setTurn(self._controlData.TURN);
     self._tank.setRadarTurn(self._controlData.RADAR_TURN);
     self._tank.setGunTurn(self._controlData.GUN_TURN );

@@ -90,15 +90,15 @@ export default class BrodyTankView extends AbstractPixiTankView  {
   _createHudBackground() {
     let statusBarBg =  new Graphics();
     statusBarBg.beginFill(0x000000, 1);
-    statusBarBg.drawRect(-26, -3, 52, 6);
+    statusBarBg.drawRoundedRect(-26, -3, 52, 6, 4);
     statusBarBg.y = -30;
     return statusBarBg;
   }
 
   _createEnergyBar() {
     let energyBar =  new Graphics();
-    energyBar.beginFill(0xffff99, 1);
-    energyBar.drawRect(0, -2, 50, 4);
+    energyBar.beginFill(0x578fe2, 1);
+    energyBar.drawRoundedRect(0, -2, 50, 4, 4);
     energyBar.x = -25;
     energyBar.y = -30;
     return energyBar;

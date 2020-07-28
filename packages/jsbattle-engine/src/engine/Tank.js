@@ -34,7 +34,9 @@ class Tank {
     this._lastX = 0;
     this._lastY = 0;
     this._angle = 0;
-    this._hasShild = true;
+    this._maxShild = 300;
+    this._shild = this._maxShild;
+    this._hasShild = false;
     this._gunAngle = 0;
     this._radarAngle = 0;
     this._throttle = 0;
@@ -236,7 +238,7 @@ class Tank {
   }
 
   get hasShild() {
-    this._hasShild;
+    return (this._hasShild && this._shild > 0);
   }
 
   setThrottle(v) {
@@ -257,6 +259,10 @@ class Tank {
 
   setBoost(v) {
     this._hasBoost = v ? true : false;
+  }
+
+  setShild(v) {
+    this._hasShild = v ? true : false;
   }
 
   setDebugData(v) {
@@ -392,6 +398,10 @@ class Tank {
       self._boost--;
     }
 
+    if(self._hasShild && self._shild > 0) {
+      self._shild--;
+    }
+
     let oldX = self._x;
     let oldY = self._y;
 
@@ -491,6 +501,7 @@ class Tank {
       angle: self._angle,
       energy: self._energy,
       boost: self._boost,
+      shild: self._shild,
       collisions: {
         wall: self._wallHit,
         enemy: self._enemyHit,
