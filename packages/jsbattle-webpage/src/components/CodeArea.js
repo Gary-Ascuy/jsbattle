@@ -25,12 +25,12 @@ export default class CodeArea extends React.Component {
       let hints = {
         settings: {
           SKIN: null,
-          SHILD_SKIN: null
+          SHIELD_SKIN: null
         },
         control: {
           THROTTLE: null,
           BOOST: null,
-          SHILD: null,
+          SHIELD: null,
           TURN: null,
           RADAR_TURN: null,
           GUN_TURN: null,
@@ -43,7 +43,7 @@ export default class CodeArea extends React.Component {
           angle: null,
           energy: null,
           boost: null,
-          shild: null,
+          shield: null,
           collisions: {
             enemy: null,
             wall: null

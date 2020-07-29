@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"shild_magic_orange": {
+		"shield_magic_orange": {
 			"frame": {
 				"h": 130,
 				"w": 130,
@@ -20,7 +20,7 @@
 			},
 			"trimmed": false
 		},
-		"shild_electric": {
+		"shield_electric": {
 			"frame": {
 				"h": 130,
 				"w": 130,
@@ -40,7 +40,7 @@
 			},
 			"trimmed": false
 		},
-		"shild_bubble": {
+		"shield_bubble": {
 			"frame": {
 				"h": 130,
 				"w": 130,
@@ -60,7 +60,7 @@
 			},
 			"trimmed": false
 		},
-		"shild_magic_blue": {
+		"shield_magic_blue": {
 			"frame": {
 				"h": 130,
 				"w": 130,
@@ -80,7 +80,7 @@
 			},
 			"trimmed": false
 		},
-		"shild_light": {
+		"shield_light": {
 			"frame": {
 				"h": 130,
 				"w": 130,
