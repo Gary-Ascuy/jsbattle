@@ -219,6 +219,12 @@ export default class AiWrapper {
     if(skinList.indexOf(input.SKIN) != -1) {
       settings.SKIN = input.SKIN;
     }
+
+    let shildSkinList = ['magic_orange' , 'electric', 'bubble', 'magic_blue', 'light'];
+    if(shildSkinList.indexOf(input.SHILD_SKIN) != -1) {
+      settings.SHILD_SKIN = input.SHILD_SKIN;
+    }
+
     this._tank.init(settings);
   }
 

@@ -400,6 +400,10 @@ class Tank {
     if(settings && settings.SKIN) {
       this._skin = settings.SKIN;
     }
+
+    if(settings && settings.SHILD_SKIN) {
+      this._shildSkin = settings.SHILD_SKIN;
+    }
   }
 
   simulationStep(collisionResolver) {

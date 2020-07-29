@@ -24,7 +24,8 @@ export default class CodeArea extends React.Component {
     CodeMirror.hint.javascript = function(editor) {
       let hints = {
         settings: {
-          SKIN: null
+          SKIN: null,
+          SHILD_SKIN: null
         },
         control: {
           THROTTLE: null,
