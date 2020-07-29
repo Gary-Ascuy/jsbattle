@@ -168,11 +168,13 @@ export default class BrodyRenderer extends AbstractPixiRenderer  {
     if(rendererScale >= 2) {
       return [
         `img/spritesheets/${rendererName}/retina@2x/jsbattle_0.json`,
-        `img/spritesheets/${rendererName}/retina@2x/jsbattle_1.json`
+        `img/spritesheets/${rendererName}/retina@2x/jsbattle_1.json`,
+        `img/spritesheets/${rendererName}/retina@2x/jsbattle_2.json`,
       ];
     } else {
       return [
-        `img/spritesheets/${rendererName}/web/jsbattle.json`
+        `img/spritesheets/${rendererName}/web/jsbattle.json`,
+        `img/spritesheets/${rendererName}/web/jsbattle_1.json`
       ];
     }
 

@@ -62,27 +62,27 @@ export class Navi extends React.Component {
           <a
             className={pathname.startsWith('/challenge') ? activeClasses : inactiveClasses}
             href="#/challenge">
-            <i className="fas fa-flask" aria-hidden="true"></i> Challenges
+            Challenges
           </a>
         </li>
         <li className="nav-item">
           <a
             className={pathname.startsWith('/sandbox') ? activeClasses : inactiveClasses}
             href="#/sandbox">
-            <i className="fas fa-drafting-compass" aria-hidden="true"></i> Sandbox
+            Sandbox
           </a>
         </li>
         <li className="nav-item">
           <a
             className={pathname.startsWith('/league') ? activeClasses : inactiveClasses}
             href="#/league">
-            <i className="fas fa-trophy" aria-hidden="true"></i> League
+            League
           </a>
         </li>
         <li className="nav-item">
           <a className={inactiveClasses} href="./docs" target="_blank">
-            <i className="far fa-file-alt" aria-hidden="true"></i> Docs<
-          /a>
+            Docs
+          </a>
         </li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
@@ -123,8 +123,8 @@ export class Navi extends React.Component {
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand" href="http://jsbattle.jmrlab.com" style={{borderRight: '1px solid #888', paddingRight: '15px'}}>
-          <img src="./img/logo.png" alt="JsBattle" />
+        <a className="navbar-brand" href="https://jsbattle.jalacolombia.com/" style={{borderRight: '1px solid rgb(255,255,255,0.1)', paddingRight: '15px'}}>
+          <img style={{ width: '77px', height: '25px' }} src="./img/logo.png" alt="JsBattle" />
         </a>
         {this.renderControls()}
     </nav>;

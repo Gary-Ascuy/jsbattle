@@ -29,6 +29,7 @@ export default class CodeArea extends React.Component {
         control: {
           THROTTLE: null,
           BOOST: null,
+          SHILD: null,
           TURN: null,
           RADAR_TURN: null,
           GUN_TURN: null,
@@ -41,6 +42,7 @@ export default class CodeArea extends React.Component {
           angle: null,
           energy: null,
           boost: null,
+          shild: null,
           collisions: {
             enemy: null,
             wall: null

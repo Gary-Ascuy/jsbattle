@@ -66,6 +66,10 @@ Bullet Power | Damage Per Bullet | Reloading Time | Damage dealt during 100 simu
 
 It is possible to temporarily double speed of the tank by turning on boost. The amount of boost is limited so it has no effect when it runs out.
 
+### Shild
+
+It is possible protect yourself temporarily from enemies by turning on shild. The amount of shild is limited.
+
 ## Energy
 
 Each collision or bullet hit reduces the amount of energy that the tank has. When energy drops to zero, the tank will be destroyed.

@@ -575,6 +575,7 @@ Object represents a tank that is involved in the battle during simulation
     * [.energy](#Tank+energy) ⇒
     * [.score](#Tank+score) ⇒
     * [.maxEnergy](#Tank+maxEnergy) ⇒
+    * [.maxShild](#Tank+maxShild) ⇒
     * [.radarRange](#Tank+radarRange) ⇒
     * [.radarFocal](#Tank+radarFocal) ⇒
     * [.name](#Tank+name) ⇒
@@ -587,6 +588,7 @@ Object represents a tank that is involved in the battle during simulation
     * [.throttle](#Tank+throttle) ⇒
     * [.hasBoost](#Tank+hasBoost) ⇒
     * [.boost](#Tank+boost) ⇒
+    * [.shild](#Tank+shild) ⇒
     * [.maxBoost](#Tank+maxBoost) ⇒
     * [.gunAngle](#Tank+gunAngle) ⇒
     * [.radarAngle](#Tank+radarAngle) ⇒
@@ -636,6 +638,11 @@ Constructor should not be called directly but through
 ### tank.maxEnergy ⇒
 **Kind**: instance property of [<code>Tank</code>](#Tank)  
 **Returns**: initial amount of the energy  
+<a name="Tank+maxShild"></a>
+
+### tank.maxShild ⇒
+**Kind**: instance property of [<code>Tank</code>](#Tank)  
+**Returns**: initial amount of the shild  
 <a name="Tank+radarRange"></a>
 
 ### tank.radarRange ⇒
@@ -696,6 +703,11 @@ Constructor should not be called directly but through
 ### tank.boost ⇒
 **Kind**: instance property of [<code>Tank</code>](#Tank)  
 **Returns**: amount of boost that has left  
+<a name="Tank+shild"></a>
+
+### tank.shild ⇒
+**Kind**: instance property of [<code>Tank</code>](#Tank)  
+**Returns**: amount of shild that has left  
 <a name="Tank+maxBoost"></a>
 
 ### tank.maxBoost ⇒

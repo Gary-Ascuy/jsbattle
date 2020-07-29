@@ -1,0 +1,10 @@
+{
+    "loglevel": "error",
+    "web": {
+        "host": "0.0.0.0",
+        "baseUrl": "https://www.mydomain.com",
+        "corsOrigin": "*",
+        "port": "3666",
+        "gaCode": "GA-CODE"
+    }
+}

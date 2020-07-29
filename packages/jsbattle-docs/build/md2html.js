@@ -23,18 +23,25 @@ function processMd(txt) {
   return txt;
 }
 
-function processHtml(txt, level, sidebarContent) {
+function processHtml(txt, level, sidebarContent, dns) {
   sidebarContent = sidebarContent.replace(/(\[[^\]]*\]\()([^\)]*\.)md\)/gi, '$1' + ('../'.repeat(level)) + '$2html)');
+  
+  // Replace Image by CDN into Images
+  if (dns) txt = txt.replace(/\"\..*\/img\//ig, `"${dns}/docs/img/`);
+
   let htmlContent = converter.makeHtml(sidebarContent);
   let root = '../'.repeat(level);
+  
+  const pathDocs = dns ? `${dns}/docs/` : root
+
   txt = `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>JsBattle Docs</title>
-    <link rel="stylesheet" href="${root}style.css" type="text/css">
-    <link rel="stylesheet" href="${root}highlight.css">
-    <script src="${root}highlight.js"></script>
+    <title>Jala Colombia - jsBattle/Docs</title>
+    <link rel="stylesheet" href="${pathDocs}style.css" type="text/css">
+    <link rel="stylesheet" href="${pathDocs}highlight.css">
+    <script src="${pathDocs}highlight.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
@@ -89,33 +96,39 @@ function processHtml(txt, level, sidebarContent) {
   return txt;
 }
 
-function processPath(base, sub, sidebarContent, level) {
+function processPath(base, sub, sidebarContent, level, cdn) {
   level = level || 0;
   let basePath = path.resolve(__dirname + "/../" + base);
   let currentPath = path.resolve(basePath + "/" + sub);
   let content = fs.readdirSync(currentPath);
+
   content.forEach((filename) => {
     let subpath = path.resolve(currentPath + "/" + filename)
     let stat = fs.statSync(subpath);
     if(stat.isDirectory()) {
       mkdir('dist' + sub + '/' + filename);
-      processPath(base, sub + '/' + filename, sidebarContent, level+1);
+      processPath(base, sub + '/' + filename, sidebarContent, level+1, cdn);
     } else if(filename.substring(filename.length-3) == '.md') {
       let mdPath = subpath;
       let htmlPath = path.resolve(__dirname + "/../dist/" + sub + '/' + filename.substring(0, filename.length-3) + ".html");
       let mdContent = fs.readFileSync(mdPath).toString();
       mdContent = processMd(mdContent);
       let htmlContent = converter.makeHtml(mdContent);
-      htmlContent = processHtml(htmlContent, level, sidebarContent);
+      htmlContent = processHtml(htmlContent, level, sidebarContent, cdn);
       console.log(htmlPath);
       fs.writeFileSync(htmlPath, htmlContent);
     }
   })
 }
 
+// CDN Configuration
+// const cdn = 'https://jsbattle.jalacolombia.com';
+// ENV JSBATTLE_CDN = 'https://jsbattle.jalacolombia.com'
+const cdn = process.env.JSBATTLE_CDN;
+
 mkdir('dist');
 let sidebar = fs.readFileSync(path.resolve(__dirname + "/../docs/_sidebar.md")).toString();
-processPath('docs', "", sidebar);
+processPath('docs', "", sidebar, 0, cdn);
 
 let indexContent = fs.readFileSync(path.resolve(__dirname + '/../dist/README.html')).toString();
 fs.writeFileSync(path.resolve(__dirname + '/../dist/index.html'), indexContent);

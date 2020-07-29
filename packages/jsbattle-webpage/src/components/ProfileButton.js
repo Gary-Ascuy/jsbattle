@@ -7,7 +7,7 @@ export default class ProfileButton extends React.Component {
   render() {
     if(!this.props.role || this.props.role == 'guest') {
       return <a className="btn btn-primary btn-small signin-button" href="#/signin">
-          <i className="fas fa-sign-in-alt"></i> Sign in
+          Sign-In
         </a>;
     }
 
@@ -15,7 +15,7 @@ export default class ProfileButton extends React.Component {
     if(this.props.role == 'admin') {
       adminLink = <a href="/admin" style={{textDecoration: 'none'}} className="dropdown-item admin-button">
         <span className="clickable dropdown-item">
-          <i className="fas fa-cogs"></i> Admin
+          Admin
         </span>
       </a>;
     }
@@ -23,7 +23,7 @@ export default class ProfileButton extends React.Component {
     if(this.props.logoutUrl) {
       logoutLink = <a href={this.props.logoutUrl} style={{textDecoration: 'none'}} className="dropdown-item logout-button">
         <span className="clickable dropdown-item">
-          <i className="fas fa-power-off"></i> Logout
+          Logout
         </span>
       </a>;
     }
