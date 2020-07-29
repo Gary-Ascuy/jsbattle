@@ -1,0 +1,107 @@
+{
+	"frames": {
+		"shild_magic_orange": {
+			"frame": {
+				"h": 130,
+				"w": 130,
+				"x": 0,
+				"y": 0
+			},
+			"rotated": false,
+			"spriteSourceSize": {
+				"h": 130,
+				"w": 130,
+				"x": 0,
+				"y": 0
+			},
+			"sourceSize": {
+				"h": 130,
+				"w": 130
+			},
+			"trimmed": false
+		},
+		"shild_electric": {
+			"frame": {
+				"h": 130,
+				"w": 130,
+				"x": 130,
+				"y": 0
+			},
+			"rotated": false,
+			"spriteSourceSize": {
+				"h": 130,
+				"w": 130,
+				"x": 0,
+				"y": 0
+			},
+			"sourceSize": {
+				"h": 130,
+				"w": 130
+			},
+			"trimmed": false
+		},
+		"shild_burble": {
+			"frame": {
+				"h": 130,
+				"w": 130,
+				"x": 260,
+				"y": 0
+			},
+			"rotated": false,
+			"spriteSourceSize": {
+				"h": 130,
+				"w": 130,
+				"x": 0,
+				"y": 0
+			},
+			"sourceSize": {
+				"h": 130,
+				"w": 130
+			},
+			"trimmed": false
+		},
+		"shild_magic_blue": {
+			"frame": {
+				"h": 130,
+				"w": 130,
+				"x": 390,
+				"y": 0
+			},
+			"rotated": false,
+			"spriteSourceSize": {
+				"h": 130,
+				"w": 130,
+				"x": 0,
+				"y": 0
+			},
+			"sourceSize": {
+				"h": 130,
+				"w": 130
+			},
+			"trimmed": false
+		},
+		"shild_light": {
+			"frame": {
+				"h": 130,
+				"w": 130,
+				"x": 520,
+				"y": 0
+			},
+			"rotated": false,
+			"spriteSourceSize": {
+				"h": 130,
+				"w": 130,
+				"x": 0,
+				"y": 0
+			},
+			"sourceSize": {
+				"h": 130,
+				"w": 130
+			},
+			"trimmed": false
+		}
+	},
+	"meta": {
+		"image": "jsbattle_1.png"
+	}
+}

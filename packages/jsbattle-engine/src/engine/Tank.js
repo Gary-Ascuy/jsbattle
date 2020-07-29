@@ -34,7 +34,7 @@ class Tank {
     this._lastX = 0;
     this._lastY = 0;
     this._angle = 0;
-    this._maxShild = 300;
+    this._maxShild = 500;
     this._shild = this._maxShild;
     this._hasShild = false;
     this._gunAngle = 0;
@@ -66,6 +66,7 @@ class Tank {
     this._boost = this._maxBoost;
     this._wallDistance = null;
     this._skin = 'zebra';
+    this._shildSkin = 'magic_orange';
   }
 
   /**
@@ -119,6 +120,13 @@ class Tank {
    */
   get maxEnergy() {
     return this._maxEnergy;
+  }
+
+  /**
+   * @return initial amount of the shild
+   */
+  get maxShild() {
+    return this._maxShild;
   }
 
   /**
@@ -206,6 +214,13 @@ class Tank {
    */
   get boost() {
     return this._boost;
+  }
+
+  /**
+   * @return amount of shild that has left
+   */
+  get shild() {
+    return this._shild;
   }
 
   /**

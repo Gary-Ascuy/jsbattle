@@ -22,6 +22,7 @@ export default class AiWrapper {
     this._controlData = {
       THROTTLE: 0,
       BOOST: 0,
+      SHILD: 0,
       TURN: 0,
       RADAR_TURN: 0,
       GUN_TURN: 0,
