@@ -10,6 +10,9 @@ export default class AbstractPixiTankView extends AbstractPixiView {
     super(model);
     this._hudView = new Container();
     this._createHud(this._hudView);
+
+    this._shildAngle = 0;
+    this._shildIncrement = 0.1;
   }
 
   get body() {
@@ -28,6 +31,10 @@ export default class AbstractPixiTankView extends AbstractPixiView {
     return this._radar;
   }
 
+  get shild() {
+    return this._shild;
+  }
+
   get label() {
     return this._label;
   }
@@ -38,6 +45,16 @@ export default class AbstractPixiTankView extends AbstractPixiView {
 
   update(events) {
     super.update(events);
+
+    this.shild.visible = this.model.hasShild;
+    if (this.model.hasShild) {
+      this._shildAngle += this._shildIncrement;
+      if (this._shildAngle > 20 || this._shildAngle < 0)
+        this._shildIncrement = this._shildIncrement * -1;
+      this.shild.rotation = this._shildAngle;
+      this.shild.alpha = (this.model.shild  / this.model.maxShild) * 0.7 + 0.2; 
+    }
+
     this.view.rotation = 0;
     this.body.rotation = this.model.angle * (Math.PI/180);
     this.gun.rotation = (this.model.angle + this.model.gunAngle) * (Math.PI/180);
@@ -78,6 +95,9 @@ export default class AbstractPixiTankView extends AbstractPixiView {
     this._body = this._createBody();
     this._gun = this._createGun();
     this._radar = this._createRadar();
+    this._shild = this._createShild();
+
+    container.addChild(this._shild);
     container.addChild(this._body);
     container.addChild(this._gun);
     container.addChild(this._radar);
@@ -100,6 +120,10 @@ export default class AbstractPixiTankView extends AbstractPixiView {
   }
 
   _createRadar() {
+    return new Sprite();
+  }
+
+  _createShild() {
     return new Sprite();
   }
 

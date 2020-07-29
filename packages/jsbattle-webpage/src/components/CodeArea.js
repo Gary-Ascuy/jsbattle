@@ -24,11 +24,13 @@ export default class CodeArea extends React.Component {
     CodeMirror.hint.javascript = function(editor) {
       let hints = {
         settings: {
-          SKIN: null
+          SKIN: null,
+          SHILD_SKIN: null
         },
         control: {
           THROTTLE: null,
           BOOST: null,
+          SHILD: null,
           TURN: null,
           RADAR_TURN: null,
           GUN_TURN: null,
@@ -41,6 +43,7 @@ export default class CodeArea extends React.Component {
           angle: null,
           energy: null,
           boost: null,
+          shild: null,
           collisions: {
             enemy: null,
             wall: null

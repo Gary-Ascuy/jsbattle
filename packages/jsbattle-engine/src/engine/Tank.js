@@ -34,6 +34,9 @@ class Tank {
     this._lastX = 0;
     this._lastY = 0;
     this._angle = 0;
+    this._maxShild = 500;
+    this._shild = this._maxShild;
+    this._hasShild = false;
     this._gunAngle = 0;
     this._radarAngle = 0;
     this._throttle = 0;
@@ -63,6 +66,7 @@ class Tank {
     this._boost = this._maxBoost;
     this._wallDistance = null;
     this._skin = 'zebra';
+    this._shildSkin = 'magic_orange';
   }
 
   /**
@@ -116,6 +120,13 @@ class Tank {
    */
   get maxEnergy() {
     return this._maxEnergy;
+  }
+
+  /**
+   * @return initial amount of the shild
+   */
+  get maxShild() {
+    return this._maxShild;
   }
 
   /**
@@ -206,6 +217,13 @@ class Tank {
   }
 
   /**
+   * @return amount of shild that has left
+   */
+  get shild() {
+    return this._shild;
+  }
+
+  /**
    * @return initial amount of boost
    */
   get maxBoost() {
@@ -234,6 +252,10 @@ class Tank {
     return this._allySpot;
   }
 
+  get hasShild() {
+    return (this._hasShild && this._shild > 0);
+  }
+
   setThrottle(v) {
     this._throttle = Math.min(1, Math.max(-1, v));
   }
@@ -254,8 +276,16 @@ class Tank {
     this._hasBoost = v ? true : false;
   }
 
+  setShild(v) {
+    this._hasShild = v ? true : false;
+  }
+
   setDebugData(v) {
     this._debugData = v;
+  }
+
+  setShild(v) {
+    this._hasShild = v ? true : false;
   }
 
   onWallHit() {
@@ -370,6 +400,10 @@ class Tank {
     if(settings && settings.SKIN) {
       this._skin = settings.SKIN;
     }
+
+    if(settings && settings.SHILD_SKIN) {
+      this._shildSkin = settings.SHILD_SKIN;
+    }
   }
 
   simulationStep(collisionResolver) {
@@ -381,6 +415,10 @@ class Tank {
 
     if(self._hasBoost && self._boost > 0) {
       self._boost--;
+    }
+
+    if(self._hasShild && self._shild > 0) {
+      self._shild--;
     }
 
     let oldX = self._x;
@@ -482,6 +520,7 @@ class Tank {
       angle: self._angle,
       energy: self._energy,
       boost: self._boost,
+      shild: self._shild,
       collisions: {
         wall: self._wallHit,
         enemy: self._enemyHit,
