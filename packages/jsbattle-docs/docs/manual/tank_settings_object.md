@@ -38,8 +38,8 @@ Preview                                  | Configuration
 ## Tank Shield Skins
 Preview                                  | Configuration
 -----------------------------------------|--------------------------
-![alt text](../img/tank_shiEld_skin_magic_orange.png)    | `settings.SHIELD_SKIN = 'magic_orange'`
-![alt text](../img/tank_shiEld_skin_electric.png)    | `settings.SHIELD_SKIN = 'electric'`
-![alt text](../img/tank_shiEld_skin_bubble.png)     | `settings.SHIELD_SKIN = 'bubble'`
-![alt text](../img/tank_shiEld_skin_magic_blue.png)      | `settings.SHIELD_SKIN = 'magic_blue'`
-![alt text](../img/tank_shiEld_skin_light.png)     | `settings.SHIELD_SKIN = 'light'`
+![alt text](../img/tank_shield_skin_magic_orange.png)    | `settings.SHIELD_SKIN = 'magic_orange'`
+![alt text](../img/tank_shield_skin_electric.png)    | `settings.SHIELD_SKIN = 'electric'`
+![alt text](../img/tank_shield_skin_bubble.png)     | `settings.SHIELD_SKIN = 'bubble'`
+![alt text](../img/tank_shield_skin_magic_blue.png)      | `settings.SHIELD_SKIN = 'magic_blue'`
+![alt text](../img/tank_shield_skin_light.png)     | `settings.SHIELD_SKIN = 'light'`
