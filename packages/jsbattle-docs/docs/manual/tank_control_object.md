@@ -6,7 +6,7 @@ Following object is used to control the behavior of the tank in [AI Scripts](./a
   {
     THROTTLE: 0,
     BOOST: 0,
-    SHILD: 0,
+    SHIELD: 0,
     TURN: 0,
     RADAR_TURN: 0,
     GUN_TURN: 0,
@@ -20,7 +20,7 @@ Name             | Possible Values   | Description
 -----------------|-------------------|----------------------------------------
 **THROTTLE**     | [-1; 1]           | Changes speed that the tank. Zero means that the tank is stopped. Negative values result in backward movement. Keep in mind that the tank needs some time to accelerate to its maximum speed.
 **BOOST**        | 0 or 1            | Turn boost on. It allows doubling maximum speed of the tank and its acceleration. The amount of boost is limited. When tank run out of boost, modification of this parameter will not cause any effects
-**SHILD**        | 0 or 1            | Turn shild on. It protects from enemy attacks. The amount of shild is limited. modification of this parameter will not cause any effects
+**SHIELD**        | 0 or 1            | Turn shield on. It protects from enemy attacks. The amount of shield is limited. modification of this parameter will not cause any effects
 **TURN**         | [-1; 1]           | Changes speed and direction of tank's turning. Zero means that the tank is not turning. Positive values cause clockwise movement, negatives - counter clockwise
 **RADAR_TURN**   | [-1; 1]           | Changes speed and direction of radar's turning. Zero means that the radar is not turning. Positive values cause clockwise movement, negatives - counter clockwise
 **GUN_TURN**     | [-1; 1]           | Changes speed and direction of gun's turning. Zero means that the gun is not turning. Positive values cause clockwise movement, negatives - counter clockwise

@@ -10,7 +10,7 @@ in [AI Scripts](./ai_script.md) as an input to control the behavior of the tank.
     angle: 45.2,
     energy: 100,
     boost: 300,
-    shild: 300,
+    shield: 500,
     collisions: {
       enemy: false,
       ally: false,
@@ -66,7 +66,7 @@ Name                       | Description
 **angle**                  | rotation of the tank in degrees. Possible values are between -180 and 180. Zero means that the tank is aiming right (east)
 **energy**                 | amount of energy that has left. When energy is zero the tank is destroyed
 **boost**                  | amount of boost that has left.
-**shild**                  | amount of shild that has left.
+**shield**                  | amount of shield that has left.
 
 ## Collisions Data
 

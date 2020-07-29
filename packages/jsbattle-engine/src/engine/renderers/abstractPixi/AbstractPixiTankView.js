@@ -11,8 +11,8 @@ export default class AbstractPixiTankView extends AbstractPixiView {
     this._hudView = new Container();
     this._createHud(this._hudView);
 
-    this._shildAngle = 0;
-    this._shildIncrement = 0.1;
+    this._shieldAngle = 0;
+    this._shieldIncrement = 0.1;
   }
 
   get body() {
@@ -31,8 +31,8 @@ export default class AbstractPixiTankView extends AbstractPixiView {
     return this._radar;
   }
 
-  get shild() {
-    return this._shild;
+  get shield() {
+    return this._shield;
   }
 
   get label() {
@@ -46,13 +46,13 @@ export default class AbstractPixiTankView extends AbstractPixiView {
   update(events) {
     super.update(events);
 
-    this.shild.visible = this.model.hasShild;
-    if (this.model.hasShild) {
-      this._shildAngle += this._shildIncrement;
-      if (this._shildAngle > 20 || this._shildAngle < 0)
-        this._shildIncrement = this._shildIncrement * -1;
-      this.shild.rotation = this._shildAngle;
-      this.shild.alpha = (this.model.shild  / this.model.maxShild) * 0.7 + 0.2; 
+    this.shield.visible = this.model.hasShield;
+    if (this.model.hasShield) {
+      this._shieldAngle += this._shieldIncrement;
+      if (this._shieldAngle > 20 || this._shieldAngle < 0)
+        this._shieldIncrement = this._shieldIncrement * -1;
+      this.shield.rotation = this._shieldAngle;
+      this.shield.alpha = (this.model.shield  / this.model.maxShield) * 0.7 + 0.2; 
     }
 
     this.view.rotation = 0;
@@ -95,9 +95,9 @@ export default class AbstractPixiTankView extends AbstractPixiView {
     this._body = this._createBody();
     this._gun = this._createGun();
     this._radar = this._createRadar();
-    this._shild = this._createShild();
+    this._shield = this._createShield();
 
-    container.addChild(this._shild);
+    container.addChild(this._shield);
     container.addChild(this._body);
     container.addChild(this._gun);
     container.addChild(this._radar);
@@ -123,7 +123,7 @@ export default class AbstractPixiTankView extends AbstractPixiView {
     return new Sprite();
   }
 
-  _createShild() {
+  _createShield() {
     return new Sprite();
   }
 

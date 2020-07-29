@@ -34,9 +34,9 @@ class Tank {
     this._lastX = 0;
     this._lastY = 0;
     this._angle = 0;
-    this._maxShild = 500;
-    this._shild = this._maxShild;
-    this._hasShild = false;
+    this._maxShield = 500;
+    this._shield = this._maxShield;
+    this._hasShield = false;
     this._gunAngle = 0;
     this._radarAngle = 0;
     this._throttle = 0;
@@ -66,7 +66,7 @@ class Tank {
     this._boost = this._maxBoost;
     this._wallDistance = null;
     this._skin = 'zebra';
-    this._shildSkin = 'magic_orange';
+    this._shieldSkin = 'magic_orange';
   }
 
   /**
@@ -123,10 +123,10 @@ class Tank {
   }
 
   /**
-   * @return initial amount of the shild
+   * @return initial amount of the shield
    */
-  get maxShild() {
-    return this._maxShild;
+  get maxShield() {
+    return this._maxShield;
   }
 
   /**
@@ -217,10 +217,10 @@ class Tank {
   }
 
   /**
-   * @return amount of shild that has left
+   * @return amount of shield that has left
    */
-  get shild() {
-    return this._shild;
+  get shield() {
+    return this._shield;
   }
 
   /**
@@ -252,8 +252,8 @@ class Tank {
     return this._allySpot;
   }
 
-  get hasShild() {
-    return (this._hasShild && this._shild > 0);
+  get hasShield() {
+    return (this._hasShield && this._shield > 0);
   }
 
   setThrottle(v) {
@@ -276,16 +276,12 @@ class Tank {
     this._hasBoost = v ? true : false;
   }
 
-  setShild(v) {
-    this._hasShild = v ? true : false;
+  setShield(v) {
+    this._hasShield = v ? true : false;
   }
 
   setDebugData(v) {
     this._debugData = v;
-  }
-
-  setShild(v) {
-    this._hasShild = v ? true : false;
   }
 
   onWallHit() {
@@ -401,8 +397,8 @@ class Tank {
       this._skin = settings.SKIN;
     }
 
-    if(settings && settings.SHILD_SKIN) {
-      this._shildSkin = settings.SHILD_SKIN;
+    if(settings && settings.SHIELD_SKIN) {
+      this._shieldSkin = settings.SHIELD_SKIN;
     }
   }
 
@@ -417,8 +413,8 @@ class Tank {
       self._boost--;
     }
 
-    if(self._hasShild && self._shild > 0) {
-      self._shild--;
+    if(self._hasShield && self._shield > 0) {
+      self._shield--;
     }
 
     let oldX = self._x;
@@ -520,7 +516,7 @@ class Tank {
       angle: self._angle,
       energy: self._energy,
       boost: self._boost,
-      shild: self._shild,
+      shield: self._shield,
       collisions: {
         wall: self._wallHit,
         enemy: self._enemyHit,

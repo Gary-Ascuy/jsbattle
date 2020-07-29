@@ -22,7 +22,7 @@ export default class AiWrapper {
     this._controlData = {
       THROTTLE: 0,
       BOOST: 0,
-      SHILD: 0,
+      SHIELD: 0,
       TURN: 0,
       RADAR_TURN: 0,
       GUN_TURN: 0,
@@ -220,9 +220,9 @@ export default class AiWrapper {
       settings.SKIN = input.SKIN;
     }
 
-    let shildSkinList = ['magic_orange' , 'electric', 'bubble', 'magic_blue', 'light'];
-    if(shildSkinList.indexOf(input.SHILD_SKIN) != -1) {
-      settings.SHILD_SKIN = input.SHILD_SKIN;
+    let shieldSkinList = ['magic_orange' , 'electric', 'bubble', 'magic_blue', 'light'];
+    if(shieldSkinList.indexOf(input.SHIELD_SKIN) != -1) {
+      settings.SHIELD_SKIN = input.SHIELD_SKIN;
     }
 
     this._tank.init(settings);
@@ -237,7 +237,7 @@ export default class AiWrapper {
     self._controlData.SHOOT = Number(value.SHOOT);
     self._controlData.DEBUG = value.DEBUG;
     self._controlData.BOOST = value.BOOST ? 1 : 0;
-    self._controlData.SHILD = value.SHILD ? 1 : 0;
+    self._controlData.SHIELD = value.SHIELD ? 1 : 0;
 
     self._controlData.THROTTLE = isNaN(self._controlData.THROTTLE) ? 0 : self._controlData.THROTTLE;
     self._controlData.TURN = isNaN(self._controlData.TURN) ? 0 : self._controlData.TURN;
@@ -253,7 +253,7 @@ export default class AiWrapper {
 
     self._tank.setThrottle(self._controlData.THROTTLE );
     self._tank.setBoost(self._controlData.BOOST );
-    self._tank.setShild(self._controlData.SHILD);
+    self._tank.setShield(self._controlData.SHIELD);
     
     self._tank.setTurn(self._controlData.TURN);
     self._tank.setRadarTurn(self._controlData.RADAR_TURN);
