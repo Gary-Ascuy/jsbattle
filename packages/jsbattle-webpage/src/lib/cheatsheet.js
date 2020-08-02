@@ -1,6 +1,8 @@
 let settings = {
-  SKIN: 'forest'
+  SKIN: 'forest',
+  SHIELD_SKIN: 'magic_blue',
 };
+
 let info = {
   id: 3,
   team: {
@@ -8,9 +10,11 @@ let info = {
     mates: [1, 2 , 3]
   }
 };
+
 let control = {
   THROTTLE: 0,
   BOOST: 0,
+  SHIELD: 0,
   TURN: 0,
   RADAR_TURN: 0,
   GUN_TURN: 0,
@@ -18,12 +22,14 @@ let control = {
   OUTBOX: [],
   DEBUG: {}
 };
+
 let state = {
   x: 39.5,
   y: 74.3,
   angle: 45.2,
   energy: 100,
   boost: 300,
+  shield: 500,
   collisions: {
     enemy: false,
     ally: false,
