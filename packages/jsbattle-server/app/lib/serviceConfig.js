@@ -17,7 +17,7 @@ config.data = {
   },
   "web": {
     "webroot": path.resolve(__dirname, "../public"),
-    "host": "127.0.0.1",
+    "host": "0.0.0.0",
     "baseUrl": "http://localhost:8080",
     "corsOrigin": [],
     "port": "8080",

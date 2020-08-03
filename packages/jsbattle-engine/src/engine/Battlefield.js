@@ -15,8 +15,6 @@ export default class Battlefield {
   setSize(width, height) {
     this._width = width-this.margin*2;
     this._height = height-this.margin*2;
-
-
   }
 
   randomize(seed) { // remember to call it after setSize !!!

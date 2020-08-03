@@ -316,6 +316,9 @@ and refreshing the renderer.
     * [.onError(callback)](#Simulation+onError)
     * [.createUltimateBattleDescriptor()](#Simulation+createUltimateBattleDescriptor) ⇒
     * [.hasTeams()](#Simulation+hasTeams) ⇒
+    * [._createBullet(owner, power)](#Simulation+_createBullet)
+    * [._createBlackHoleBullet(owner)](#Simulation+_createBlackHoleBullet)
+    * [._createRadioActiveBullet(owner)](#Simulation+_createRadioActiveBullet)
 
 <a name="new_Simulation_new"></a>
 
@@ -560,6 +563,38 @@ the battle and reflect its exact course.
 ### simulation.hasTeams() ⇒
 **Kind**: instance method of [<code>Simulation</code>](#Simulation)  
 **Returns**: true if at least two tanks are cooperating within one team  
+<a name="Simulation+_createBullet"></a>
+
+### simulation.\_createBullet(owner, power)
+**Kind**: instance method of [<code>Simulation</code>](#Simulation)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | [<code>Tank</code>](#Tank) | owner tank. |
+| power | <code>Number</code> | power of bullet. |
+
+<a name="Simulation+_createBlackHoleBullet"></a>
+
+### simulation.\_createBlackHoleBullet(owner)
+Creates a black hole bullet (Damage: 3X, Speed: 0.5).
+
+**Kind**: instance method of [<code>Simulation</code>](#Simulation)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | [<code>Tank</code>](#Tank) | tank owner. |
+
+<a name="Simulation+_createRadioActiveBullet"></a>
+
+### simulation.\_createRadioActiveBullet(owner)
+Creates a radioactive bullet (Damage: 2X, and Speed: 2.5X).
+
+**Kind**: instance method of [<code>Simulation</code>](#Simulation)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | [<code>Tank</code>](#Tank) | tank owner. |
+
 <a name="Tank"></a>
 
 ## Tank

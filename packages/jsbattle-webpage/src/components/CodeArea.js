@@ -35,6 +35,7 @@ export default class CodeArea extends React.Component {
           RADAR_TURN: null,
           GUN_TURN: null,
           SHOOT: null,
+          SHOOT_TYPE: null,
           DEBUG: null
         },
         state: {
@@ -78,6 +79,8 @@ export default class CodeArea extends React.Component {
               }
           },
           gun: {
+            specialBulletCounter: null,
+            shootingType: null,
             angle: null,
             reloading: null
           },

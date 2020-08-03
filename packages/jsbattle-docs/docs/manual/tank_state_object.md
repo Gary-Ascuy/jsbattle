@@ -48,6 +48,8 @@ in [AI Scripts](./ai_script.md) as an input to control the behavior of the tank.
       ]
     },
     gun: {
+      specialBulletCounter: 2,
+      shootingType: "normal",
       angle: -34.5,
       reloading: false
     },
@@ -122,6 +124,8 @@ Name                       | Description
 
 Name                       | Description
 ---------------------------|------------------------------------------------------
+**gun.specialBulletCounter**              | amount of special bullets that has left
+**gun.shootingType**              | Type of bullet. It should be one of 'normal', 'radioactive', or 'blackhole', by default it starts in 'normal'
 **gun.angle**              | rotation of the gun relative to tank's rotation. Possible values are between -180 and 180. Zero means that the gun s aiming at the same direction as front of the tank
 **gun.reloading**          | after each shoot, the gun must be reloaded and it cannot shoot again until reload is finished. The value is true if the gun is being reloaded. Otherwise false.
 

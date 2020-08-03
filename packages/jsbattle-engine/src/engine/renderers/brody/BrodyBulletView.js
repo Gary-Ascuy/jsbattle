@@ -26,6 +26,13 @@ export default class BrodyBulletView extends AbstractPixiBulletView  {
     glow.blendMode = BLEND_MODES.ADD;
     glow.alpha = 0.1;
     this._glow = glow;
+
+    if (this.model.color) {
+      bullet.tint = this.model.color;
+      glow.tint = this.model.color;
+      glow.alpha = 0.3;
+    }
+
     container.addChild(glow);
     container.addChild(bullet);
   }
