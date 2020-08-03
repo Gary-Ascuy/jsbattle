@@ -57,6 +57,8 @@ class Tank {
     this._gunReloadTime = 70;
     this._gunTimer = 0;
     this._shootingPower = 0;
+    this._shootingType = 'normal';
+    this._specialBulletCounter = 2;
     this._targetingAlarmTimer = 0;
     this._debugData = {};
     this._score = 0;
@@ -366,6 +368,35 @@ class Tank {
     return this._shootingPower;
   }
 
+  get shootingType() {
+    if (this._specialBulletCounter <= 0) {
+      return 'normal';
+    }
+
+    return this._shootingType;
+  }
+
+  get specialBulletCounter() {
+    return this._specialBulletCounter;
+  }
+
+  setShootingType(v) {
+    this._shootingType = v ? v : 'normal';
+  }
+
+  resolveSpecialBullet() {
+    if (this._specialBulletCounter <= 0) {
+      this.setShootingType('normal');
+      return 'normal';
+    }
+
+    return this.shootingType;
+  }
+
+  discountSpecialBullet() {
+    this._specialBulletCounter--;
+  }
+
   handleShoot() {
     let value = this._shootingPower;
     this._shootingPower = 0;
@@ -531,6 +562,8 @@ class Tank {
         bullets: bulletsData
       },
       gun: {
+        specialBulletCounter: this._specialBulletCounter,
+        shootingType: this.shootingType,
         angle: self._gunAngle,
         reloading: self.isReloading
       },

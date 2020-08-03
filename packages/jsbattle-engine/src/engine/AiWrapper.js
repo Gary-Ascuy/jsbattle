@@ -228,6 +228,11 @@ export default class AiWrapper {
     this._tank.init(settings);
   }
 
+  _normalizeShootType(type) {
+    let shootingTypes = ['normal' , 'radioactive', 'blackhole'];
+    return shootingTypes.indexOf(type) == -1 ? 'normal' : type;
+  }
+
   _controlTank(value) {
     let self = this;
     self._controlData.THROTTLE = Number(value.THROTTLE);
@@ -235,6 +240,7 @@ export default class AiWrapper {
     self._controlData.GUN_TURN = Number(value.GUN_TURN);
     self._controlData.RADAR_TURN = Number(value.RADAR_TURN);
     self._controlData.SHOOT = Number(value.SHOOT);
+    self._controlData.SHOOT_TYPE = this._normalizeShootType(value.SHOOT_TYPE);
     self._controlData.DEBUG = value.DEBUG;
     self._controlData.BOOST = value.BOOST ? 1 : 0;
     self._controlData.SHIELD = value.SHIELD ? 1 : 0;
@@ -252,13 +258,15 @@ export default class AiWrapper {
     self._controlData.SHOOT = Math.min(1, Math.max(0, Number(self._controlData.SHOOT)));
 
     self._tank.setThrottle(self._controlData.THROTTLE );
-    self._tank.setBoost(self._controlData.BOOST );
+    self._tank.setBoost(self._controlData.BOOST);
     self._tank.setShield(self._controlData.SHIELD);
     
     self._tank.setTurn(self._controlData.TURN);
     self._tank.setRadarTurn(self._controlData.RADAR_TURN);
-    self._tank.setGunTurn(self._controlData.GUN_TURN );
+    self._tank.setGunTurn(self._controlData.GUN_TURN);
     self._tank.setDebugData(self._controlData.DEBUG);
+    self._tank.setShootingType(self._controlData.SHOOT_TYPE);
+
     if(self._controlData.SHOOT) {
       self._tank.shoot(self._controlData.SHOOT);
     }

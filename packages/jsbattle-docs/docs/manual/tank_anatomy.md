@@ -61,6 +61,18 @@ Bullet Power | Damage Per Bullet | Reloading Time | Damage dealt during 100 simu
 0.5          | 5.75              | 35             | 16.4
 1.0          | 13                | 70             | 18.6
 
+### Special Bullet
+
+Each tank has a limited amount of special bullets, special bullet has an extra velocity or damage. 
+
+Bullet Power | Damage Per Bullet | Velocity | Reloading Time
+-------------|-------------------|------------------------------------------
+Radio Active | 26 (2X)     |  10 (2.5Z)  | VARIABLE (Dependens of Shot Speed)
+Black Hole | 39 (3X)        |  2 (0.5Z)  | VARIABLE (Dependens of Shot Speed)
+
+when:
+ - X = Max damage of normal bullets.
+ - Z = Normal Bullet Speed = 4 units.
 
 ### Boost
 

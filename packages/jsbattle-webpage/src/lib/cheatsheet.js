@@ -19,6 +19,7 @@ let control = {
   RADAR_TURN: 0,
   GUN_TURN: 0,
   SHOOT: 0,
+  SHOOT_TYPE: 'radioactive',
   OUTBOX: [],
   DEBUG: {}
 };
@@ -67,6 +68,8 @@ let state = {
     ]
   },
   gun: {
+    specialBulletCounter: 1,
+    shootingType: "radioactive",
     angle: -34.5,
     reloading: false
   },

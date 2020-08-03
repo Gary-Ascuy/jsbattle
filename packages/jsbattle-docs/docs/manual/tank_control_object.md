@@ -11,6 +11,7 @@ Following object is used to control the behavior of the tank in [AI Scripts](./a
     RADAR_TURN: 0,
     GUN_TURN: 0,
     SHOOT: 0,
+    SHOOT_TYPE: 'normal',
     OUTBOX: [],
     DEBUG: {}
   }
@@ -25,5 +26,6 @@ Name             | Possible Values   | Description
 **RADAR_TURN**   | [-1; 1]           | Changes speed and direction of radar's turning. Zero means that the radar is not turning. Positive values cause clockwise movement, negatives - counter clockwise
 **GUN_TURN**     | [-1; 1]           | Changes speed and direction of gun's turning. Zero means that the gun is not turning. Positive values cause clockwise movement, negatives - counter clockwise
 **SHOOT**        | [0.1; 1]          | Fires a bullet in the direction where the gun is aiming. Provided value determine how powerful the bullet will be. Bigger value results in more damage but also longer reloading time. More powerful bullets may deal up to 30% more damage over the same period of time than smaller ones
+**SHOOT_TYPE**        | ['normal', 'radioactive', 'blackhole'] | Updates type of bullet, there limited is an amount of special bullets, those can extra speed and damage. only radioactive and blackhole reduce special bullet counter.
 **OUTBOX**       | Array of Objects  | List of messages that should be broadcast to team members. It could be list of any objects
 **DEBUG**        | Object            | An object with data that can be assigned to the tank and viewed during simulation. Allows to monitor internal parameters of AI script and to debug it
