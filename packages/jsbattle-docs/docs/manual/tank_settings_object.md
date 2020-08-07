@@ -5,6 +5,7 @@ Settings object is passed to `tank.init(function(settings, info) { ... })` of [A
 ```javascript
   tank.init(function(settings) {
     settings.SKIN = 'lava';
+    settings.SHIELD_SKIN = 'magic_blue'
   });
 ```
 
@@ -12,7 +13,8 @@ Here is how the structure of settings object looks like:
 
 ```javascript
   {
-    SKIN: 'forest'
+    SKIN: 'forest',
+    SHIELD_SKIN: 'magic_blue'
   }
 ```
 
@@ -31,3 +33,13 @@ Preview                                  | Configuration
 ![alt text](../img/tank_skin_black.png)     | `settings.SKIN = 'black'`
 ![alt text](../img/tank_skin_zebra.png)     | `settings.SKIN = 'zebra'`
 ![alt text](../img/tank_skin_tiger.png)     | `settings.SKIN = 'tiger'`
+
+
+## Tank Shield Skins
+Preview                                  | Configuration
+-----------------------------------------|--------------------------
+![alt text](../img/tank_shield_skin_magic_orange.png)    | `settings.SHIELD_SKIN = 'magic_orange'`
+![alt text](../img/tank_shield_skin_electric.png)    | `settings.SHIELD_SKIN = 'electric'`
+![alt text](../img/tank_shield_skin_bubble.png)     | `settings.SHIELD_SKIN = 'bubble'`
+![alt text](../img/tank_shield_skin_magic_blue.png)      | `settings.SHIELD_SKIN = 'magic_blue'`
+![alt text](../img/tank_shield_skin_light.png)     | `settings.SHIELD_SKIN = 'light'`

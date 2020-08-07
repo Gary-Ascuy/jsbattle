@@ -85,3 +85,4 @@ dist
 .vscode
 
 .jsbattle.config.json
+packages/jsbattle-react/public/img/spritesheets/

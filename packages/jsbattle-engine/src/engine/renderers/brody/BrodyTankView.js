@@ -72,12 +72,12 @@ export default class BrodyTankView extends AbstractPixiTankView  {
     return tankRadar;
   }
 
-  _createShild() {
-    let shild = Sprite.from('shild_' + this.model._shildSkin);
-    shild.visible = this.model.hasShild;
-    shild.anchor.set(0.5, 0.5);
-    shild.alpha = 0.9;
-    return shild;
+  _createShield() {
+    let shield = Sprite.from('shield_' + this.model._shieldSkin);
+    shield.visible = this.model.hasShield;
+    shield.anchor.set(0.5, 0.5);
+    shield.alpha = 0.9;
+    return shield;
   }
 
   _createLabel() {

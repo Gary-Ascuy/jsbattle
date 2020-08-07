@@ -316,6 +316,9 @@ and refreshing the renderer.
     * [.onError(callback)](#Simulation+onError)
     * [.createUltimateBattleDescriptor()](#Simulation+createUltimateBattleDescriptor) ⇒
     * [.hasTeams()](#Simulation+hasTeams) ⇒
+    * [._createBullet(owner, power)](#Simulation+_createBullet)
+    * [._createBlackHoleBullet(owner)](#Simulation+_createBlackHoleBullet)
+    * [._createRadioActiveBullet(owner)](#Simulation+_createRadioActiveBullet)
 
 <a name="new_Simulation_new"></a>
 
@@ -560,6 +563,38 @@ the battle and reflect its exact course.
 ### simulation.hasTeams() ⇒
 **Kind**: instance method of [<code>Simulation</code>](#Simulation)  
 **Returns**: true if at least two tanks are cooperating within one team  
+<a name="Simulation+_createBullet"></a>
+
+### simulation.\_createBullet(owner, power)
+**Kind**: instance method of [<code>Simulation</code>](#Simulation)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | [<code>Tank</code>](#Tank) | owner tank. |
+| power | <code>Number</code> | power of bullet. |
+
+<a name="Simulation+_createBlackHoleBullet"></a>
+
+### simulation.\_createBlackHoleBullet(owner)
+Creates a black hole bullet (Damage: 3X, Speed: 0.5).
+
+**Kind**: instance method of [<code>Simulation</code>](#Simulation)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | [<code>Tank</code>](#Tank) | tank owner. |
+
+<a name="Simulation+_createRadioActiveBullet"></a>
+
+### simulation.\_createRadioActiveBullet(owner)
+Creates a radioactive bullet (Damage: 2X, and Speed: 2.5X).
+
+**Kind**: instance method of [<code>Simulation</code>](#Simulation)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | [<code>Tank</code>](#Tank) | tank owner. |
+
 <a name="Tank"></a>
 
 ## Tank
@@ -575,7 +610,7 @@ Object represents a tank that is involved in the battle during simulation
     * [.energy](#Tank+energy) ⇒
     * [.score](#Tank+score) ⇒
     * [.maxEnergy](#Tank+maxEnergy) ⇒
-    * [.maxShild](#Tank+maxShild) ⇒
+    * [.maxShield](#Tank+maxShield) ⇒
     * [.radarRange](#Tank+radarRange) ⇒
     * [.radarFocal](#Tank+radarFocal) ⇒
     * [.name](#Tank+name) ⇒
@@ -588,7 +623,7 @@ Object represents a tank that is involved in the battle during simulation
     * [.throttle](#Tank+throttle) ⇒
     * [.hasBoost](#Tank+hasBoost) ⇒
     * [.boost](#Tank+boost) ⇒
-    * [.shild](#Tank+shild) ⇒
+    * [.shield](#Tank+shield) ⇒
     * [.maxBoost](#Tank+maxBoost) ⇒
     * [.gunAngle](#Tank+gunAngle) ⇒
     * [.radarAngle](#Tank+radarAngle) ⇒
@@ -638,11 +673,11 @@ Constructor should not be called directly but through
 ### tank.maxEnergy ⇒
 **Kind**: instance property of [<code>Tank</code>](#Tank)  
 **Returns**: initial amount of the energy  
-<a name="Tank+maxShild"></a>
+<a name="Tank+maxShield"></a>
 
-### tank.maxShild ⇒
+### tank.maxShield ⇒
 **Kind**: instance property of [<code>Tank</code>](#Tank)  
-**Returns**: initial amount of the shild  
+**Returns**: initial amount of the shield  
 <a name="Tank+radarRange"></a>
 
 ### tank.radarRange ⇒
@@ -703,11 +738,11 @@ Constructor should not be called directly but through
 ### tank.boost ⇒
 **Kind**: instance property of [<code>Tank</code>](#Tank)  
 **Returns**: amount of boost that has left  
-<a name="Tank+shild"></a>
+<a name="Tank+shield"></a>
 
-### tank.shild ⇒
+### tank.shield ⇒
 **Kind**: instance property of [<code>Tank</code>](#Tank)  
-**Returns**: amount of shild that has left  
+**Returns**: amount of shield that has left  
 <a name="Tank+maxBoost"></a>
 
 ### tank.maxBoost ⇒

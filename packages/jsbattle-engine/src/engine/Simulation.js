@@ -2,7 +2,7 @@
 
 import Tank from "./Tank.js";
 import Team from "./Team.js";
-import Bullet from "./Bullet.js";
+import Bullet, { BLACKHOLE_BULLET, RADIOACTIVE_BULLET } from "./Bullet.js";
 import Battlefield from "./Battlefield.js";
 import EventStore from "./EventStore.js";
 import CollisionResolver from "./CollisionResolver.js";
@@ -608,8 +608,42 @@ class Simulation {
     return tank;
   }
 
+  /**
+   * 
+   * @param {Tank} owner owner tank.
+   * @param {Number} power power of bullet.
+   */
   _createBullet(owner, power) {
-    let bullet = new Bullet(owner, this._nextBulletId++, power);
+    const type = owner.resolveSpecialBullet();
+
+    if (type === 'blackhole') {
+      owner.discountSpecialBullet();
+      return this._createBlackHoleBullet(owner);
+    }
+
+    if (type === 'radioactive') {
+      owner.discountSpecialBullet();
+      return this._createRadioActiveBullet(owner);
+    }
+
+    return new Bullet(owner, this._nextBulletId++, power);
+  }
+
+  /**
+   * Creates a black hole bullet (Damage: 3X, Speed: 0.5).
+   * @param {Tank} owner tank owner.
+   */
+  _createBlackHoleBullet(owner) {
+    let bullet = new Bullet(owner, this._nextBulletId++, 3, 2, BLACKHOLE_BULLET);
+    return bullet;
+  }
+
+  /**
+   * Creates a radioactive bullet (Damage: 2X, and Speed: 2.5X).
+   * @param {Tank} owner tank owner.
+   */
+  _createRadioActiveBullet(owner) {
+    let bullet = new Bullet(owner, this._nextBulletId++, 2, 10, RADIOACTIVE_BULLET);
     return bullet;
   }
 
