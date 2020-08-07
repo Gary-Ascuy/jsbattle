@@ -22,6 +22,8 @@ import {
 import JsBattle from 'jsbattle-engine';
 import PropTypes from 'prop-types';
 
+export const MAX_TANKS_BY_TEAM = 5;
+
 export class SandboxScreen extends React.Component {
 
   constructor(props) {
@@ -73,7 +75,7 @@ export class SandboxScreen extends React.Component {
   updateAiDefList(mode, opponent) {
     let aiDefList = [];
     let teamMode = (mode == 'team');
-    let count = teamMode ? 3 : 1;
+    let count = teamMode ? MAX_TANKS_BY_TEAM : 1;
 
     for(let i=0; i < count; i++) {
       let aiDef = JsBattle.createAiDefinition();
@@ -180,7 +182,7 @@ export class SandboxScreen extends React.Component {
 
   render() {
     let teamMode = (this.props.mode == 'team');
-    let count = teamMode ? 3 : 1;
+    let count = teamMode ? MAX_TANKS_BY_TEAM : 1;
 
     return <div>
         <FullRow>
