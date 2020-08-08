@@ -37,6 +37,8 @@ class Tank {
     this._maxShield = 500;
     this._shield = this._maxShield;
     this._hasShield = false;
+    this._maxEMP = 100;
+    this._emp = 0;
     this._gunAngle = 0;
     this._radarAngle = 0;
     this._throttle = 0;
@@ -255,7 +257,11 @@ class Tank {
   }
 
   get hasShield() {
-    return (this._hasShield && this._shield > 0);
+    return !this.hasEMP && this._hasShield && this._shield > 0;
+  }
+
+  get hasEMP() {
+    return this._emp > 0;
   }
 
   setThrottle(v) {
@@ -339,7 +345,13 @@ class Tank {
     return this._targetingAlarmTimer > 0;
   }
 
-  onDamage(damage) {
+  onDamage(damage, emp = false) {
+    if (emp) {
+      if (!this.hasEMP)
+        this._emp = this._maxEMP;
+      return;
+    }
+
     this._energy = Math.max(0, this._energy - damage);
   }
 
@@ -448,17 +460,27 @@ class Tank {
       self._shield--;
     }
 
+    if(self._emp > 0) {
+      self._emp--;
+    }
+
     let oldX = self._x;
     let oldY = self._y;
 
     let maxSpeed = self._throttle * (self.hasBoost ? 4 : 2);
     let accelerationFactor = (self.hasBoost ? 10 : 20);
-    self._actualThrottle += (maxSpeed - self._actualThrottle)/accelerationFactor;
+   
+    if (!self.hasEMP)
+      self._actualThrottle += (maxSpeed - self._actualThrottle)/accelerationFactor;
 
     let v = self._actualThrottle;
-    let rotation = self._angle*(Math.PI/180);
-    self._x += v*Math.cos(rotation);
-    self._y += v*Math.sin(rotation);
+
+    if (!self.hasEMP) {
+      let rotation = self._angle*(Math.PI/180);
+      self._x += v*Math.cos(rotation);
+      self._y += v*Math.sin(rotation);
+    }
+
     self._wallHit = false;
     self._enemyHit = false;
     self._allyHit = false;
@@ -494,7 +516,7 @@ class Tank {
     collisionResolver.scanBullets(self);
     collisionResolver.scanWalls(self);
 
-    if(self._gunTimer > 0) {
+    if(self._gunTimer > 0 && !self.hasEMP) {
       self._gunTimer--;
     }
 
@@ -548,6 +570,7 @@ class Tank {
       energy: self._energy,
       boost: self._boost,
       shield: self._shield,
+      electroMagneticPulse: self._emp,
       collisions: {
         wall: self._wallHit,
         enemy: self._enemyHit,

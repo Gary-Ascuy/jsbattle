@@ -63,12 +63,13 @@ Bullet Power | Damage Per Bullet | Reloading Time | Damage dealt during 100 simu
 
 ### Special Bullet
 
-Each tank has a limited amount of special bullets, special bullet has an extra velocity or damage. 
+Each tank has a limited amount of special bullets, special bullet has an extra velocity or damage. Reloading time dependens of shoot speed.
 
-Bullet Power | Damage Per Bullet | Velocity | Reloading Time
--------------|-------------------|------------------------------------------
-Radio Active | 26 (2X)     |  10 (2.5Z)  | VARIABLE (Dependens of Shot Speed)
-Black Hole | 39 (3X)        |  2 (0.5Z)  | VARIABLE (Dependens of Shot Speed)
+Bullet Power | Type | Damage Per Bullet | Velocity | Effect
+------------|--------|-------------------|------------------------------------------
+Radio Active          | `control.SHOOT_TYPE='radioactive'` | 26 (2X) | 10 (2.5Z) | None
+Black Hole            | `control.SHOOT_TYPE='blackhole'`   | 39 (3X) | 2 (0.5Z)  | None
+ElectroMagnetic Pulse | `control.SHOOT_TYPE='emp'`         | 0 (0X)  | 1 (0.25Z) | Disable Shield and Movement by 100 time units 
 
 when:
  - X = Max damage of normal bullets.

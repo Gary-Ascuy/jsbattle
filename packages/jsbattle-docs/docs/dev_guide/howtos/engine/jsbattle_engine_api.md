@@ -319,6 +319,7 @@ and refreshing the renderer.
     * [._createBullet(owner, power)](#Simulation+_createBullet)
     * [._createBlackHoleBullet(owner)](#Simulation+_createBlackHoleBullet)
     * [._createRadioActiveBullet(owner)](#Simulation+_createRadioActiveBullet)
+    * [._createEMPBullet(owner)](#Simulation+_createEMPBullet)
 
 <a name="new_Simulation_new"></a>
 
@@ -588,6 +589,17 @@ Creates a black hole bullet (Damage: 3X, Speed: 0.5).
 
 ### simulation.\_createRadioActiveBullet(owner)
 Creates a radioactive bullet (Damage: 2X, and Speed: 2.5X).
+
+**Kind**: instance method of [<code>Simulation</code>](#Simulation)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | [<code>Tank</code>](#Tank) | tank owner. |
+
+<a name="Simulation+_createEMPBullet"></a>
+
+### simulation.\_createEMPBullet(owner)
+Creates an electro magnetic pulse (EMP) bullet (Damage: 0, Speed: 0.25X, and Effect: 100T block).
 
 **Kind**: instance method of [<code>Simulation</code>](#Simulation)  
 

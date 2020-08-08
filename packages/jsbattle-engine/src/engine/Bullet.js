@@ -2,6 +2,7 @@
 
 export const BLACKHOLE_BULLET = 0x0000ff;
 export const RADIOACTIVE_BULLET = 0x00ff00;
+export const EMP_BULLET = 0xff0000;
 
 export default class Bullet {
 
@@ -65,8 +66,8 @@ export default class Bullet {
 
   onEnemyHit(enemy) {
     this._exploded = true;
-    if (!enemy.hasShield) {
-      enemy.onDamage(this._damage);
+    if (!enemy.hasShield || this.color == EMP_BULLET) {
+      enemy.onDamage(this._damage, this.color == EMP_BULLET);
     }
   }
 

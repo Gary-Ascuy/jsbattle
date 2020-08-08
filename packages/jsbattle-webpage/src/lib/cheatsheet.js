@@ -31,6 +31,7 @@ let state = {
   energy: 100,
   boost: 300,
   shield: 500,
+  electroMagneticPulse: 0,
   collisions: {
     enemy: false,
     ally: false,
