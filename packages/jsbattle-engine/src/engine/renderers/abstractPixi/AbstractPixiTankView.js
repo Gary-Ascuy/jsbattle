@@ -13,8 +13,11 @@ export default class AbstractPixiTankView extends AbstractPixiView {
 
     this._shieldAngle = 0;
     this._shieldIncrement = 0.1;
+
     this._scale = 1;
     this._scaleIncrement = 0.03;
+    this._empAngle = 0;
+    this._empAngleIncrement = 0.2;
   }
 
   get body() {
@@ -61,9 +64,9 @@ export default class AbstractPixiTankView extends AbstractPixiView {
 
     if (this.model.hasShield) {
       this._shieldAngle += this._shieldIncrement;
-      if (this._shieldAngle > 20 || this._shieldAngle < 0)
-        this._shieldIncrement = this._shieldIncrement * -1;
+      if (this._shieldAngle > 20 || this._shieldAngle < 0) this._shieldIncrement *= -1;
       this.shield.rotation = this._shieldAngle;
+
       this.shield.alpha = (this.model.shield  / this.model.maxShield) * 0.7 + 0.2; 
     }
 
@@ -71,6 +74,10 @@ export default class AbstractPixiTankView extends AbstractPixiView {
       if (this._scale < 0.5 || this._scale > 1) this._scaleIncrement *= -1;
       this._scale += this._scaleIncrement;
       this.electroMagneticPulse.scale.set(this._scale, this._scale);
+
+      if (this._empAngle > 2 || this._empAngle < 0) this._empAngleIncrement *= -1;
+      this._empAngle += this._empAngleIncrement;
+      this.electroMagneticPulse.rotation = this._empAngle;
     }
 
     this.view.rotation = 0;

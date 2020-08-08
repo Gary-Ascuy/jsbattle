@@ -99,6 +99,26 @@
 				"w": 130
 			},
 			"trimmed": false
+		},
+		"electro_magnetic_pulse": {
+			"frame": {
+				"h": 130,
+				"w": 130,
+				"x": 650,
+				"y": 0
+			},
+			"rotated": false,
+			"spriteSourceSize": {
+				"h": 130,
+				"w": 130,
+				"x": 0,
+				"y": 0
+			},
+			"sourceSize": {
+				"h": 130,
+				"w": 130
+			},
+			"trimmed": false
 		}
 	},
 	"meta": {
