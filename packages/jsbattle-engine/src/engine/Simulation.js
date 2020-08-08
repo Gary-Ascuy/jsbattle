@@ -2,7 +2,7 @@
 
 import Tank from "./Tank.js";
 import Team from "./Team.js";
-import Bullet, { BLACKHOLE_BULLET, RADIOACTIVE_BULLET } from "./Bullet.js";
+import Bullet, { BLACKHOLE_BULLET, RADIOACTIVE_BULLET, EMP_BULLET } from "./Bullet.js";
 import Battlefield from "./Battlefield.js";
 import EventStore from "./EventStore.js";
 import CollisionResolver from "./CollisionResolver.js";
@@ -626,6 +626,11 @@ class Simulation {
       return this._createRadioActiveBullet(owner);
     }
 
+    if (type === 'emp') {
+      owner.discountSpecialBullet();
+      return this._createEMPBullet(owner);
+    }
+
     return new Bullet(owner, this._nextBulletId++, power);
   }
 
@@ -647,5 +652,13 @@ class Simulation {
     return bullet;
   }
 
+  /**
+   * Creates an electro magnetic pulse (EMP) bullet (Damage: 0, Speed: 0.25X, and Effect: 100T block).
+   * @param {Tank} owner tank owner.
+   */
+  _createEMPBullet(owner) {
+    let bullet = new Bullet(owner, this._nextBulletId++, 0.5, 1, EMP_BULLET);
+    return bullet;
+  }
 }
 export default Simulation;

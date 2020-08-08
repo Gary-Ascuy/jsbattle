@@ -80,6 +80,14 @@ export default class BrodyTankView extends AbstractPixiTankView  {
     return shield;
   }
 
+  _createElectroMagneticPulse() {
+    let electroMagneticPulse = Sprite.from('electro_magnetic_pulse');
+    electroMagneticPulse.visible = this.model.hasEMP;
+    electroMagneticPulse.anchor.set(0.5, 0.5);
+    electroMagneticPulse.alpha = 0.9;
+    return electroMagneticPulse;
+  }
+
   _createLabel() {
     let labelStyle = new TextStyle({
         fontFamily: 'Arial',

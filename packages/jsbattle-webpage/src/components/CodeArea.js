@@ -45,6 +45,7 @@ export default class CodeArea extends React.Component {
           energy: null,
           boost: null,
           shield: null,
+          electroMagneticPulse: null,
           collisions: {
             enemy: null,
             wall: null

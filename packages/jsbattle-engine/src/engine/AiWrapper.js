@@ -229,7 +229,7 @@ export default class AiWrapper {
   }
 
   _normalizeShootType(type) {
-    let shootingTypes = ['normal' , 'radioactive', 'blackhole'];
+    let shootingTypes = ['normal' , 'radioactive', 'blackhole', 'emp'];
     return shootingTypes.indexOf(type) == -1 ? 'normal' : type;
   }
 
