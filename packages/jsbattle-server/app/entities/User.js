@@ -14,13 +14,16 @@ module.exports = {
         $ref: '#/components/schemas/entityId'
       },
       username: {
-        $ref: '#/components/schemas/entityName'
+        type: "string",
+        minLength: 3,
+        maxLength: 16,
+        pattern: '^[A-Za-z 0-9\\- .]+$'
       },
       displayName: {
         type: "string",
         minLength: 3,
-        maxLength: 32,
-        pattern: '^[A-Za-z0-9\\- .]+$'
+        maxLength: 16,
+        pattern: '^[A-Za-z 0-9\\- .]+$'
       },
       provider: {
         $ref: '#/components/schemas/entityName'
