@@ -306,13 +306,16 @@
         "type": "object",
         "properties": {
           "username": {
-            "$ref": "#/components/schemas/entityName"
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 32,
+            "pattern": "^[A-Za-z 0-9\\- .]+$"
           },
           "displayName": {
             "type": "string",
             "minLength": 3,
             "maxLength": 32,
-            "pattern": "^[A-Za-z0-9\\- .]+$"
+            "pattern": "^[A-Za-z 0-9\\- .]+$"
           },
           "challenges": {
             "type": "array",

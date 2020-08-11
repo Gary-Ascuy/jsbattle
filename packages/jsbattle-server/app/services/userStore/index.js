@@ -21,7 +21,7 @@ module.exports = (config) => {
       findOrCreate: require("./actions/findOrCreate.js"),
       register: {
         params: {
-          username: validators.entityName({optional: true}),
+          username: validators.userFullName({optional: true}),
           displayName: validators.userFullName({optional: true}),
         },
         handler: require("./actions/register.js")
