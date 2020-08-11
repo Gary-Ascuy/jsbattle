@@ -29,10 +29,11 @@ export default class ProfileButton extends React.Component {
     }
 
     return <li className="nav-item dropdown">
-      <span className="clickable profile-button nav-link active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      <span
+        className="clickable profile-button nav-link active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
         <Avatar
           img={this.props.role}
-        /> <span className="user-profile-name">{this.props.username}</span>
+        /> <span className="user-profile-name" style={{ textTransform: 'capitalize' }}>{this.props.username}</span>
       </span>
       <div className="dropdown-menu dropdown-menu-right profile-dropdown">
         {adminLink}

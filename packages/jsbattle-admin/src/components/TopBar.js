@@ -17,7 +17,7 @@ class TopBar extends Component {
     let profileControl = null;
     if(this.props.username) {
       profileControl = <Nav>
-        <Navbar.Text style={{paddingRight: '1em'}}>Signed in as <strong style={{color: '#fff'}}>{this.props.username || 'anonymous'}</strong></Navbar.Text>
+        <Navbar.Text style={{paddingRight: '1em'}}>Signed in as <strong style={{color: '#fff', textTransform: 'capitalize' }}>{this.props.username || 'anonymous'}</strong></Navbar.Text>
         <Form inline>
           <Button variant="secondary" href="/auth/logout"><FontAwesomeIcon icon={faPowerOff} /></Button>
         </Form>
