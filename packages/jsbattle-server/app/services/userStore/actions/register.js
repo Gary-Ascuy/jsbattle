@@ -7,7 +7,7 @@ function validateDisplayName(displayName) {
   if(displayName.length < 3) {
     throw new ValidationError('displayName must be at least 3 characters long', 400);
   }
-  if(!(/^[A-Za-z0-9_. -]+$/).test(displayName)) {
+  if(!(/^[A-Za-z 0-9_. -]+$/).test(displayName)) {
     throw new ValidationError('displayName contains invalid characters', 400);
   }
 }
@@ -19,7 +19,7 @@ function validateUserName(username) {
   if(username.length < 3) {
     throw new ValidationError('username must be at least 3 characters long', 400);
   }
-  if(!(/^[A-Za-z0-9_.-]+$/).test(username)) {
+  if(!(/^[A-Za-z 0-9_.-]+$/).test(username)) {
     throw new ValidationError('username contains invalid characters', 400);
   }
   const reservedNames = [
