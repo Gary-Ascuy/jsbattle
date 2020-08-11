@@ -1,3 +1,6 @@
+html {
+  overflow-x: hidden;
+}
 
 .battlefield {
   margin: 5px;
@@ -66,10 +69,25 @@ nav.navbar.navbar-dark.bg-dark {
   color: rgba(255,255,255,.8);
 }
 
+.clickable.profile-button.nav-link.active {
+  color: #ffffff !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  background: transparent;
+  color: white !important;
+  font-weight: bold;
+}
+
+@media (min-width: 992px) { 
+  .clickable.profile-button.nav-link.active {
+    padding-left: 10px !important;
+  }
+}
+
 .nav-item > .active {
   background-color: #ffffff;
   color: #343a40 !important;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 8px !important;
 }
 

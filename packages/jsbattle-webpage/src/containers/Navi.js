@@ -90,7 +90,9 @@ export class Navi extends React.Component {
           <span className="nav-link main-nav-link" style={{fontWeight: 'normal'}}>{loading}</span>
         </li>
         <li className="dropdown">
-          <span className="clickable dropdown-toggle sim-quality-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fas fa-image"></i> {this.qualityToName(this.props.simQuality)} <span className="caret"></span></span>
+          <span style={{fontWeight: 100}} className="clickable dropdown-toggle sim-quality-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i className="fas fa-eye"></i> {this.qualityToName(this.props.simQuality)} <span className="caret"></span>
+          </span>
           <div className="nav-item dropdown-menu">
             {this.renderQualityButton('auto')}
             <span role="separator" className="dropdown-divider"></span>
@@ -100,7 +102,9 @@ export class Navi extends React.Component {
           </div>
         </li>
         <li className="nav-item dropdown">
-          <span className="clickable dropdown-toggle sim-speed-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fas fa-tachometer-alt"></i> {this.speedToName(this.props.simSpeed)} <span className="caret"></span></span>
+          <span style={{fontWeight: 100}} className="clickable dropdown-toggle sim-speed-button nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i className="fas fa-shipping-fast"></i> {this.speedToName(this.props.simSpeed)} <span className="caret"></span>
+          </span>
           <div className="dropdown-menu dropdown-menu-right">
             {this.renderSpeedButton(0.05)}
             {this.renderSpeedButton(0.3)}
