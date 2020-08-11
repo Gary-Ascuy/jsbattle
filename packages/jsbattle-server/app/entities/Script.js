@@ -19,7 +19,10 @@ module.exports = {
         $ref: '#/components/schemas/entityId'
       },
       ownerName: {
-        $ref: '#/components/schemas/entityName'
+        type: "string",
+        minLength: 3,
+        maxLength: 32,
+        pattern: '^[A-Za-z 0-9\\- .]+$'
       },
       scriptName: {
         $ref: '#/components/schemas/entityName'
