@@ -4,7 +4,7 @@ module.exports = function() {
     facebook: "Facebook",
     google: "Google",
     mock: "Mock",
-    keycloak: "JalaOne SSO"
+    keycloak: "Jala Account"
   }
 
   const authConfig = this.settings.auth;

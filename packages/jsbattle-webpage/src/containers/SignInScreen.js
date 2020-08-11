@@ -27,6 +27,11 @@ export class SignInScreen extends React.Component {
         icon: 'fab fa-google float-left',
         color: '#fff',
         backgroundColor: '#ea4335'
+      },
+      keycloak: {
+        icon: 'fab fa-google float-left',
+        color: '#ffffff',
+        backgroundColor: '#414141'
       }
     };
 
@@ -37,14 +42,16 @@ export class SignInScreen extends React.Component {
         color: authConfig ? authConfig.color : '#fff',
         backgroundColor: authConfig ? authConfig.backgroundColor : '#4ca624',
         border: 0,
+        borderRadius: '26px',
         width: '100%',
         maxWidth: '350px',
-        margin: '0.2em'
+        margin: '0.2em',
+        fontWeight: 200
       };
       const icon = authConfig ? authConfig.icon : 'fa fa-lock float-left';
       return <div key={providerName}>
         <a href={auth.url} style={style} className={`btn btn-primary btn-lg ${providerName}-auth-button`}>
-          <i className={icon} style={{marginTop: '0.3em'}}></i> Login with {auth.name}
+          <i className={icon} style={{ marginTop: '0.3em', backgroundRepeat: 'no-repeat', backgroundSize: '16px 20px', color: 'transparent', backgroundImage: 'url("/img/colombia/logo.small.png")' }}></i> Login with {auth.name}
         </a>
       </div>;
     });
@@ -82,17 +89,19 @@ export class SignInScreen extends React.Component {
       border: '1px solid #666',
       width: '100%',
       maxWidth: '350px',
-      margin: '0.2em'
+      margin: '0.2em',
+      borderRadius: '26px',
+      fontWeight: 200
     };
     return <FullRow>
           <div style={{padding: '2em 1em', textAlign: 'center'}}>
-            <img style={{ width: '400px' }} src="./img/colombia/colombia-logo.png" alt="JsBattle" />
-            <h1>Please Sign-In</h1>
+            <img style={{ width: '400px' }} src="/img/colombia/colombia-logo.png" alt="JsBattle" />
+            <h2>Please Sign-In</h2>
             {buttons}
             <div style={separatorStyle}><div style={separatorLabelStyle}> OR </div></div>
             <div>
               <a href="#/challenge" style={guestStyle} className="btn btn-primary btn-lg guest-auth-button">
-                <i className="fas fa-sign-in-alt float-left" style={{marginTop: '0.3em'}}></i> Continue as Guest
+                <i className="fas fa-sign-in-alt float-left" style={{marginTop: '0.3em' }}></i> Continue as Guest
               </a>
             </div>
           </div>

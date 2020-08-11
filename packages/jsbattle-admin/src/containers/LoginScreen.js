@@ -40,9 +40,14 @@ class LoginScreen extends Component {
         backgroundColor: '#3b5998'
       },
       google: {
-        icon: faGoogle,
+        icon: 'fab fa-google float-left',
         color: '#fff',
         backgroundColor: '#ea4335'
+      },
+      keycloak: {
+        icon: faGoogle,
+        color: '#ffffff',
+        backgroundColor: '#414141',
       }
     };
     let buttons = Object.keys(this.props.authMethods).map((providerName) => {
@@ -51,11 +56,15 @@ class LoginScreen extends Component {
       const style = {
         color: authConfig ? authConfig.color : '#000',
         backgroundColor: authConfig ? authConfig.backgroundColor : '#6cc644',
-        border: 0
+        border: 0,
+        borderRadius: '26px',
+        width: '100%',
+        margin: '0.2em',
+        fontWeight: 200
       };
       const icon = authConfig ? authConfig.icon : faLock;
-      return <Button key={providerName} variant="primary" size="lg" block href={auth.url} style={style} className={`${providerName}-auth-button`}>
-        <FontAwesomeIcon size="lg" className="float-left" icon={icon} /> Login with {auth.name}
+      return <Button key={providerName} variant="primary" size="lg" block href={auth.url} style={style} className={`btn btn-primary btn-lg ${providerName}-auth-button`}>
+        <i className='fab fa-google float-left' style={{ width: '20px', height: '20px', marginTop: '0.3em', backgroundRepeat: 'no-repeat', backgroundSize: '16px 20px', color: 'transparent', backgroundImage: 'url("/img/colombia/logo.small.png")' }}></i> Login with {auth.name}
       </Button>;
     });
 
@@ -72,7 +81,7 @@ class LoginScreen extends Component {
             <Col xl={12}>
               <div style={{margin: 'auto', width: '100%', maxWidth: '420px', padding: '2em 1em', textAlign: 'center'}}>
                 <img style={{ width: '380px' }} src="/img/colombia/colombia-logo.png" alt="JsBattle" />
-                <h1>Please Sign-In</h1>
+                <h2>Please Sign-In</h2>
                 {buttons}
               </div>
             </Col>
