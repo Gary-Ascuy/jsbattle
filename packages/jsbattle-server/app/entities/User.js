@@ -16,13 +16,13 @@ module.exports = {
       username: {
         type: "string",
         minLength: 3,
-        maxLength: 16,
+        maxLength: 32,
         pattern: '^[A-Za-z 0-9\\- .]+$'
       },
       displayName: {
         type: "string",
         minLength: 3,
-        maxLength: 16,
+        maxLength: 32,
         pattern: '^[A-Za-z 0-9\\- .]+$'
       },
       provider: {
