@@ -26,7 +26,8 @@ class LiveCodeSandboxSettingsTab extends React.Component {
         result.push(value.source);
       }
       return result;
-    }, []);
+    }, []).filter(name => name !== 'league');
+
     const categoryLabels = {
       'bundled': 'Bundled',
       'local_user': 'Sandbox',
