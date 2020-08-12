@@ -43,6 +43,13 @@ function processHtml(txt, level, sidebarContent, dns) {
     <link rel="stylesheet" href="${pathDocs}highlight.css">
     <script src="${pathDocs}highlight.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Docs - Universal JsBattle Championship"/>
+    <meta property="og:description" content="It is a game for JavaScript developers. The goal is to program artificial intelligence of a tank that will destroy all opponents and win the competition."/>
+    <meta property="og:image" content="https://jsbattle.jalacolombia.com/img/colombia/colombia-logo.png" />
+    <meta property="og:url" content="https://jsbattle.jalacolombia.com/docs">
+
   </head>
   <body>
     <div id="side">
