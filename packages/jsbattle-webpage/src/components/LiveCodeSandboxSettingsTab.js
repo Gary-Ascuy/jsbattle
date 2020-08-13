@@ -57,7 +57,7 @@ class LiveCodeSandboxSettingsTab extends React.Component {
                   </Row>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="opponent"><i className="fas fa-users-cog"></i> Mode</label>
+                  <label htmlFor="opponent"><i className="fas fa-users"></i> Mode</label>
                   <select className="form-control" id="mode" value={this.props.mode} onChange={(e) => this.props.onBattleModeChange(e.target.value == 'team')}>
                     <option value="team">Team Deathmatch</option>
                     <option value="duel">Duel ( 1 on 1 )</option>

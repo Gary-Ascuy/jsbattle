@@ -88,7 +88,18 @@ nav.navbar.navbar-dark.bg-dark {
   background-color: #ffffff;
   color: #343a40 !important;
   border-radius: 20px;
-  padding: 8px !important;
+}
+
+ul.nav-tabs li.nav-item {
+  margin-bottom: -7px;
+  margin-right: 2px;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-radius: 20px;
+  border-color: #e9ecef #e9ecef #dee2e6;
+  background: white;
+  z-index: 100;
 }
 
 .code-editor-widget {
