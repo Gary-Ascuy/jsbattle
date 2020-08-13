@@ -23,7 +23,7 @@ module.exports = async function() {
   this.server = this.app.listen(this.port, 'localhost', () => this.logger.info(`UbdPlayer started at http://localhost:${this.port}`))
 
   // start browser
-  this.browser = await puppeteer.launch();
+  this.browser = await puppeteer.launch({args: ['--no-sandbox']});
   this.logger.info(`Starting player at ${this.settings.ubdPlayer.speed}x speed`);
   this.loop = setInterval(async () => {
     if(!this.settings.ubdPlayer.enabled) {
@@ -41,7 +41,7 @@ module.exports = async function() {
           this.logger.warn(err);
         }
         try {
-          this.browser = await puppeteer.launch();
+          this.browser = await puppeteer.launch({args: ['--no-sandbox']});
           this.isBusy = false;
         } catch(err) {
           this.logger.warn('cannot restart');
