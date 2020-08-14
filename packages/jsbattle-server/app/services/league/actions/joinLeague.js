@@ -16,7 +16,7 @@ module.exports = async function(ctx) {
   const now = new Date().toISOString();
   if (disabledJoinIntervals.some(range => isBetween(range, now))) {
     this.logger.info('Schedule Disabled');
-    throw new ValidationError('Invalid Period Time', 404)
+    throw new ValidationError('Invalid Period Time', 404);
   }
 
   let script = await ctx.call('scriptStore.getUserScript', { id: ctx.params.scriptId });
