@@ -3,6 +3,11 @@ module.exports = async function(ctx) {
   // pick random opponents
   let opponents = await ctx.call('league.pickRandomOpponents', {});
 
+  if (!opponents) {
+    this.logger.info('There are not more battles');
+    return;
+  }
+
   // build UBD
   let ubd = {
     version: 4,

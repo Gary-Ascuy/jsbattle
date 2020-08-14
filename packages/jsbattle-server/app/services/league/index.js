@@ -13,7 +13,9 @@ module.exports = (config) => {
     mixins: [DbService],
     settings: {
       ...entity,
-      obfuscate: config.league.obfuscate
+      obfuscate: config.league.obfuscate,
+      battles: config.league.battles,
+      disabledJoinIntervals: config.league.disabledJoinIntervals || []
     },
 
     actions: {
