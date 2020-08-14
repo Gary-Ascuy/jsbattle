@@ -29,6 +29,16 @@ config.data = {
     "providers": []
   },
   "league": {
+    "battles": [
+      [
+        { "ownerName": 'jsbattle', "scriptName": 'crawler' },
+        { "ownerName": 'jsbattle', "scriptName": 'sniper' }
+      ],
+      [
+        { "ownerName": 'jsbattle', "scriptName": 'jamro' },
+        { "ownerName": 'jsbattle', "scriptName": 'crazy' }
+      ]
+    ],
     "disabledIntervals": [
       {
         "start": '2020-08-14T02:23:59.252Z',

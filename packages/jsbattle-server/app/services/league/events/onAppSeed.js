@@ -20,9 +20,10 @@ module.exports = async function() {
       "score"
     ]
   });
-  if(!this.ranktable ) {
+  if(!this.ranktable) {
     this.ranktable = new RankTable();
   }
-  this.ranktable.init(initData);
+  this.ranktable.logger  = this.logger;
+  this.ranktable.init(initData, this.settings.battles);
   this.logger.info('Rank Table initialized');
 }

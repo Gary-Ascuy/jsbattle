@@ -28,7 +28,7 @@ module.exports = async function(ctx) {
   let currentSubmission = await ctx.call('league.getUserSubmission', {});
   let startingScore = 0;
   if(ctx.params.scriptId === currentSubmission.scriptId) {
-    startingScore = currentSubmission.score;
+    startingScore = 0; // currentSubmission.score;
   }
 
   await ctx.call('league.leaveLeague', {});

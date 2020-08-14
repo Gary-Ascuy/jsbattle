@@ -4,11 +4,29 @@ class RankTable {
     this.data = [];
   }
 
-  init(data) {
-    this.data = data;
+  init(data, battles) {
+    if (battles) {
+      const cache = {};
+      [].concat(...battles).forEach(item => cache[`@${item.ownerName}/${item.scriptName}`] = true);
+      this.data = data.filter(item => cache[`@${item.ownerName}/${item.scriptName}`]);
+    } else {
+      this.data = data.filter(item => item.ownerName !== 'jsbattle')
+    }
+
     const count = this.data.length;
-    for(let i=0; i < count; i++) {
-      this.data[i].rank = i+1;
+    for (let i=0; i < count; i++) {
+      this.data[i].rank = i + 1;
+    }
+
+    this.schedule = this.getSchedule(battles);
+    this.showBattles();
+  }
+
+  showBattles() {
+    this.logger.info(`Schedule Definition: ${this.schedule.length} scheduled battles`);
+    for (const battle of this.schedule) {
+      const [a, b] = battle
+      this.logger.info(`@${a.ownerName}/${a.scriptName} Vs @${b.ownerName}/${b.scriptName}`)
     }
   }
 
@@ -160,55 +178,41 @@ class RankTable {
     return this.data.length;
   }
 
-  generateAllSchedule() {
+  findScriptByQuery(query) {
+    const { ownerName, scriptName } = query;
+    return this.data.find(script => ownerName === script.ownerName && scriptName === script.scriptName)
+  }
+
+  getFullSchedule() {
     const length = this.data.length
-    const results = []
+    const results = [];
     for (let i = 0; i < length - 1; i++) {
       for (let j = i + 1; j < length; j++) {
         results.push([this.data[j], this.data[i]]);
       }
     }
-    return results
+    return results;
   }
 
-  searchScriptByQuery(query) {
-    const { ownerName, scriptName } = query;
-    return this.data.filter(script => ownerName === script.ownerName && scriptName === script.scriptName)
+  getScheduleFromConfig(battles) {
+    return battles.map(battle => {
+      const [a, b] = battle;
+      return [this.findScriptByQuery(a), this.findScriptByQuery(b)];
+    });
   }
 
-  getAllBatlles() {
-
+  getSchedule(battles) {
+    return battles ? this.getScheduleFromConfig(battles) : this.getFullSchedule();
   }
 
   getNextBattle() {
     let count = this.data.length;
     if(count <= 1) {
-      throw new Error('no opponents found for the league match')
+      throw new Error('no opponents found for the league match');
     }
 
-    // if this.settings.battles = [
-    //   [{ ownerName: 'gary ascuy', scriptName: 'chatarra'}, { username: 'gary ascuy', script: 'chatarra'}]
-    //   [{ username: 'javier roca', script: 'chatarra'}, { username: 'gary ascuy', script: 'chatarra'}]
- /// find in data the tank definition before build
-//  print battles to confirm 
-// show last 8 players Works by default ...
-// remove all jsbattle tanks
-    // this.schedule = this.settings.battles ? this.settings.battles : this.generateAllSchedule();
-
-
-    const battles = [
-      [{ ownerName: 'jsbattle', scriptName: 'crawler' }, { ownerName: 'jsbattle', scriptName: 'sniper' }],
-      [{ ownerName: 'jsbattle', scriptName: 'jamro' }, { ownerName: 'jsbattle', scriptName: 'crazy' }]
-    ]
-
-    console.log(this.data)
-    if (!this.schedule) {
-      // this.schedule = this.generateAllSchedule();
-      this.schedule = battles.map(battle => {
-        const [a, b] = battle;
-        return [searchScriptByQuery(a), searchScriptByQuery(b)];
-      });
-    }
+    if (!this.schedule)
+      throw new Error('There is not configured schedule of battles');
 
     const battle = Math.random() > 0.5 ? this.schedule.shift() : this.schedule.pop();
     if (!battle) {
@@ -230,8 +234,6 @@ class RankTable {
     if(index2 >= index1) {
       index2++;
     }
-
-    console.log(this.data)
 
     return [
       this.data[0],

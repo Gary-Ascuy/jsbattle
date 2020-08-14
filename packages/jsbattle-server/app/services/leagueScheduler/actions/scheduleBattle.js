@@ -18,8 +18,6 @@ module.exports = async function(ctx) {
   };
 
   for(let opponent of opponents) {
-    console.log("OPPONENT: ", opponent.scriptName);
-
     ubd.aiList.push({
       name: opponent.ownerName + '/' + opponent.scriptName,
       team: opponent.ownerName + '/' + opponent.scriptName,
