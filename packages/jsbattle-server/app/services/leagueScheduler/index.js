@@ -4,6 +4,7 @@ module.exports = (config) => ({
   name: "leagueScheduler",
   settings: {
     queueLimit: config.ubdPlayer.queueLimit,
+    disabledIntervals: config.league.disabledIntervals || [],
     scheduleInterval: config.league.scheduleInterval,
     timeLimit: config.league.timeLimit,
     teamSize: config.league.teamSize,
