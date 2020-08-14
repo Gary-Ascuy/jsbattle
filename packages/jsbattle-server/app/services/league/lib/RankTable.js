@@ -160,6 +160,35 @@ class RankTable {
     return this.data.length;
   }
 
+  generateAllSchedule() {
+    const length = this.data.length
+    const results = []
+    for (let i = 0; i < length - 1; i++) {
+      for (let j = i + 1; j < length; j++) {
+        results.push([this.data[j], this.data[i]]);
+      }
+    }
+    return results
+  }
+
+  getNextBattle() {
+    let count = this.data.length;
+    if(count <= 1) {
+      throw new Error('no opponents found for the league match')
+    }
+
+    if (!this.schedule) {
+      this.schedule = this.generateAllSchedule();
+    }
+
+    const battle = Math.random() > 0.5 ? this.schedule.shift() : this.schedule.pop();
+    if (!battle) {
+      throw new Error('There are not more battles');
+    }
+
+    return battle;
+  }
+
   pickRandom() {
     let count = this.data.length;
     if(count <= 1) {
@@ -173,9 +202,11 @@ class RankTable {
       index2++;
     }
 
+    console.log(this.data)
+
     return [
-      this.data[index1],
-      this.data[index2]
+      this.data[0],
+      this.data[1]
     ]
   }
 }
