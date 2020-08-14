@@ -171,14 +171,43 @@ class RankTable {
     return results
   }
 
+  searchScriptByQuery(query) {
+    const { ownerName, scriptName } = query;
+    return this.data.filter(script => ownerName === script.ownerName && scriptName === script.scriptName)
+  }
+
+  getAllBatlles() {
+
+  }
+
   getNextBattle() {
     let count = this.data.length;
     if(count <= 1) {
       throw new Error('no opponents found for the league match')
     }
 
+    // if this.settings.battles = [
+    //   [{ ownerName: 'gary ascuy', scriptName: 'chatarra'}, { username: 'gary ascuy', script: 'chatarra'}]
+    //   [{ username: 'javier roca', script: 'chatarra'}, { username: 'gary ascuy', script: 'chatarra'}]
+ /// find in data the tank definition before build
+//  print battles to confirm 
+// show last 8 players Works by default ...
+// remove all jsbattle tanks
+    // this.schedule = this.settings.battles ? this.settings.battles : this.generateAllSchedule();
+
+
+    const battles = [
+      [{ ownerName: 'jsbattle', scriptName: 'crawler' }, { ownerName: 'jsbattle', scriptName: 'sniper' }],
+      [{ ownerName: 'jsbattle', scriptName: 'jamro' }, { ownerName: 'jsbattle', scriptName: 'crazy' }]
+    ]
+
+    console.log(this.data)
     if (!this.schedule) {
-      this.schedule = this.generateAllSchedule();
+      // this.schedule = this.generateAllSchedule();
+      this.schedule = battles.map(battle => {
+        const [a, b] = battle;
+        return [searchScriptByQuery(a), searchScriptByQuery(b)];
+      });
     }
 
     const battle = Math.random() > 0.5 ? this.schedule.shift() : this.schedule.pop();
