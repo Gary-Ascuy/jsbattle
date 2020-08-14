@@ -35,6 +35,12 @@ config.data = {
         "end": '2020-08-14T02:48:00.252Z'
       }
     ],
+    "disabledJoinIntervals": [
+      {
+        "start": '2020-08-14T02:23:59.252Z',
+        "end": '2020-08-16T02:48:00.252Z'
+      }
+    ],
     "scheduleInterval": 30000,
     "timeLimit": 20000,
     "teamSize": 5,

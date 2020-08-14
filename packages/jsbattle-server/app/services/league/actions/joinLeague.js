@@ -2,10 +2,21 @@ const { ValidationError } = require("moleculer").Errors;
 const stripComments = require('strip-comments');
 const JavaScriptObfuscator = require('javascript-obfuscator');
 
+function isBetween(range, date) {
+  return date > range.start && date < range.end;
+}
+
 module.exports = async function(ctx) {
   const userId = ctx.meta.user ? ctx.meta.user.id : null;
   if(!userId) {
     throw new ValidationError('Not Authorized!', 401);
+  }
+
+  const disabledJoinIntervals = this.settings.disabledJoinIntervals || []
+  const now = new Date().toISOString();
+  if (disabledJoinIntervals.some(range => isBetween(range, now))) {
+    this.logger.info('Schedule Disabled');
+    throw new ValidationError('Invalid Period Time', 404)
   }
 
   let script = await ctx.call('scriptStore.getUserScript', { id: ctx.params.scriptId });
