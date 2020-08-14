@@ -421,6 +421,12 @@ class Tank {
 
   shoot(value) {
     value = Math.max(0.1, Math.min(1, value));
+
+    // Especial Bullets
+    if (this.shootingType !== 'normal') {
+      value = 2;
+    }
+
     if(!this.isReloading) {
       this._gunTimer = Math.round(value*this._gunReloadTime);
       this._shootingPower = value;

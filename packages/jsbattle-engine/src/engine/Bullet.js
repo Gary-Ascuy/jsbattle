@@ -17,7 +17,11 @@ export default class Bullet {
     this._speed = speed;
     this._color = color;
     this._power = power;
+
     this._damage = Math.round(1000 * power + 300 * power * power) * 0.01;
+    if (color === BLACKHOLE_BULLET) this._damage = 52; // 4X
+    if (color === RADIOACTIVE_BULLET) this._damage = 26; // 2X
+
     this._exploded = false;
   }
 
