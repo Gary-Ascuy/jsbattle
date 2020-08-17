@@ -10,6 +10,7 @@ class RankTable {
       [].concat(...battles).forEach(item => cache[`@${item.ownerName}/${item.scriptName}`] = true);
       this.data = data.filter(item => cache[`@${item.ownerName}/${item.scriptName}`]);
     } else {
+      this.logger.info('No battles predefined')
       this.data = data.filter(item => item.ownerName !== 'jsbattle')
     }
 

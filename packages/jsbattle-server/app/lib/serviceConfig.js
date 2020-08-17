@@ -51,6 +51,8 @@ config.data = {
         "end": '2020-08-16T02:48:00.252Z'
       }
     ],
+    "allowedUsers": [],
+    "codeFolder": "./usercode",
     "scheduleInterval": 30000,
     "timeLimit": 20000,
     "teamSize": 5,

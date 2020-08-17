@@ -1,9 +1,29 @@
+const fs = require('fs')
+
 const { ValidationError } = require("moleculer").Errors;
 const stripComments = require('strip-comments');
 const JavaScriptObfuscator = require('javascript-obfuscator');
 
+
 function isBetween(range, date) {
   return date > range.start && date < range.end;
+}
+
+function saveCode(logger, folder, code, user, script){
+  const safeUser = user.replace(' ', '_').trim()
+  const safeScriptName = script.replace(' ', '_').trim()
+  const fileName =  `${folder}/${safeUser}-${safeScriptName}-${new Date().toISOString()}.js`
+  logger.info(`Saving ${fileName}`)
+  try
+  {
+    fs.writeFileSync(fileName, code)
+    logger.info("User code was saved!");
+  }
+  catch (error) {
+    logger.error(`Error saving Users code ${user}`);
+    logger.info(code)
+    logger.error(error)
+  }
 }
 
 module.exports = async function(ctx) {
@@ -12,6 +32,7 @@ module.exports = async function(ctx) {
     throw new ValidationError('Not Authorized!', 401);
   }
 
+  // Check Joins Intervals
   const disabledJoinIntervals = this.settings.disabledJoinIntervals || []
   const now = new Date().toISOString();
   if (disabledJoinIntervals.some(range => isBetween(range, now))) {
@@ -25,6 +46,14 @@ module.exports = async function(ctx) {
     throw new ValidationError('Not Authorized!', 401);
   }
 
+  // Check Users Allowed
+  this.logger.info('Verify if user is allowed to join league')
+  const allowedUsers = this.settings.allowedUsers || []
+
+  if ((allowedUsers.length > 0) && (!allowedUsers.includes(script.ownerName.toLowerCase()))) {
+    throw new ValidationError('You are not Authorized to Join League', 401);
+  }
+
   let currentSubmission = await ctx.call('league.getUserSubmission', {});
   let startingScore = 0;
   if(ctx.params.scriptId === currentSubmission.scriptId) {
@@ -34,6 +63,9 @@ module.exports = async function(ctx) {
   await ctx.call('league.leaveLeague', {});
 
   let code = script.code;
+  
+  saveCode(this.logger, this.settings.codeFolder, code, script.ownerName, script.scriptName)
+
   if(this.settings.obfuscate) {
     try {
       let prevSize = Math.round(code.length/1024);

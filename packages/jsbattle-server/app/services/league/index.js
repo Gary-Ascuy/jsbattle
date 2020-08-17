@@ -15,7 +15,9 @@ module.exports = (config) => {
       ...entity,
       obfuscate: config.league.obfuscate,
       battles: config.league.battles,
-      disabledJoinIntervals: config.league.disabledJoinIntervals || []
+      disabledJoinIntervals: config.league.disabledJoinIntervals || [],
+      allowedUsers: config.league.allowedUsers || [],
+      codeFolder: config.league.codeFolder
     },
 
     actions: {
