@@ -17,7 +17,8 @@ module.exports = (config) => {
       battles: config.league.battles,
       disabledJoinIntervals: config.league.disabledJoinIntervals || [],
       allowedUsers: config.league.allowedUsers || [],
-      codeFolder: config.league.codeFolder
+      codeFolder: config.league.codeFolder,
+      scheduleFolder: config.league.scheduleFolder
     },
 
     actions: {
