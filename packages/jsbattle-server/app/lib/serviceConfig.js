@@ -29,16 +29,7 @@ config.data = {
     "providers": []
   },
   "league": {
-    "battles": [
-      [
-        { "ownerName": 'jsbattle', "scriptName": 'crawler' },
-        { "ownerName": 'jsbattle', "scriptName": 'sniper' }
-      ],
-      [
-        { "ownerName": 'jsbattle', "scriptName": 'jamro' },
-        { "ownerName": 'jsbattle', "scriptName": 'crazy' }
-      ]
-    ],
+    "battles": false,
     "disabledIntervals": [
       {
         "start": '2020-08-14T02:23:59.252Z',
@@ -53,6 +44,7 @@ config.data = {
     ],
     "allowedUsers": [],
     "codeFolder": "./usercode",
+    "scheduleFolder": "./schedules",
     "scheduleInterval": 30000,
     "timeLimit": 20000,
     "teamSize": 5,

@@ -1,10 +1,12 @@
+const fs = require('fs');
+
 class RankTable {
 
   constructor() {
     this.data = [];
   }
 
-  init(data, battles) {
+  init(data, battles, scheduleFolder) {
     if (battles) {
       const cache = {};
       [].concat(...battles).forEach(item => cache[`@${item.ownerName}/${item.scriptName}`] = true);
@@ -20,11 +22,31 @@ class RankTable {
     }
 
     this.schedule = this.getSchedule(battles);
+    if (scheduleFolder) {
+      this.saveBattleSchedule(this.schedule, scheduleFolder)
+    }
     this.showBattles();
   }
 
+  saveBattleSchedule(schedule, folder) {
+    try {
+      const fileName = `${folder}/battles-${new Date().toISOString()}.json`
+      let log = (`Schedule Definition: ${this.schedule.length} scheduled battles\n`);    
+      for (const battle of this.schedule) {
+        const [a, b] = battle
+        log += `@${a.ownerName}/${a.scriptName} Vs @${b.ownerName}/${b.scriptName}\n`
+      }
+      const data = JSON.stringify(schedule, null, 2)
+      this.logger.info('Saving battle schedule')
+      fs.writeFileSync(fileName, `${log}\n${data}`)
+    } catch (err) {
+      this.logger.error('Cannot save battle schedule')
+      this.logger.error(err)
+    }
+  }
+
   showBattles() {
-    this.logger.info(`Schedule Definition: ${this.schedule.length} scheduled battles`);
+    this.logger.info(`Schedule Definition: ${this.schedule.length} scheduled battles`);    
     for (const battle of this.schedule) {
       const [a, b] = battle
       this.logger.info(`@${a.ownerName}/${a.scriptName} Vs @${b.ownerName}/${b.scriptName}`)
@@ -90,6 +112,12 @@ class RankTable {
   updateFail(id, fightsError) {
     let entity = this.data.find((e) => e.id == id);
     entity.fights_error = fightsError;
+    try {
+     this.logger.error(`Updating fail ${JSON.stringify(entity)} items`)
+     }
+     catch (err) {
+       this.logger.error(err)
+     }
   }
 
   updateScore(id, newScore, totalFigths, fightsWin, fightsLose) {
@@ -97,6 +125,7 @@ class RankTable {
     let newIndex = -1;
     let oldIndex = -1;
     let i;
+    this.logger.info(`Updating score of ${count} items`)
     for(i=0; i < count; i++) {
       if(newIndex == -1 && this.data[i].score < newScore) {
         newIndex = i;
@@ -192,6 +221,7 @@ class RankTable {
         results.push([this.data[j], this.data[i]]);
       }
     }
+    this.logger.info(`Full schedule has ${length} battles`)
     return results;
   }
 
@@ -215,10 +245,14 @@ class RankTable {
     if (!this.schedule)
       throw new Error('There is not configured schedule of battles');
 
+    this.logger.info(`Getting next battle Items: ${this.schedule.length}` )
+
     const battle = Math.random() > 0.5 ? this.schedule.shift() : this.schedule.pop();
     if (!battle) {
       throw new Error('There are not more battles');
     }
+
+    this.logger.info(`New Item obtained Items: ${this.schedule.length}`)
 
     return battle;
   }
