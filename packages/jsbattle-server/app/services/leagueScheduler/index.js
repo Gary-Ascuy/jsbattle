@@ -8,6 +8,7 @@ module.exports = (config) => ({
     scheduleInterval: config.league.scheduleInterval,
     timeLimit: config.league.timeLimit,
     teamSize: config.league.teamSize,
+    scheduleFolder: config.league.scheduleFolder,
     historyDuration: config.league.historyDuration,
   },
   actions: {

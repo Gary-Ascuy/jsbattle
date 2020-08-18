@@ -45,10 +45,27 @@ module.exports = async function(ctx) {
     if(queueResult.ok) {
       this.logger.info(`Scheduling battle ${opponents[0].scriptName} vs ${opponents[1].scriptName}`);
     } else {
-      this.logger.debug('Unable to schedule battle: ' + queueResult.error);
+      this.logger.info(`Error Scheduling battle ${opponents[0].scriptName} vs ${opponents[1].scriptName}`);
+      this.logger.error('Unable to schedule battle: ' + queueResult.error);
+      // Write a file with failing battles
+      saveQueueError(opponents[0], opponents[1], this.settings.scheduleFolder, this.logger, queueResult.error)
     }
   } catch(err) {
-    this.logger.debug('Unable to schedule battle due to: ' + err.message)
+    this.logger.error('Unable to schedule battle due to: ' + err.message)
   }
 
+  function saveQueueError(playerA, playerB, folder, logger, err) {
+    const fs = require('fs');
+    let errorMessage =  (`Could not enqueue  battle ${playerA.scriptName} vs ${playerB.scriptName}\nerror: ${err}\n`);
+    errorMessage += `playerA:\n${JSON.stringify(playerA)}\nplayerB:\n${JSON.stringify(playerB)}`
+
+    try {
+      const fileName = `${folder}/queueError-${playerA.scriptName}-vs-${playerB.scriptName}.${new Date().toISOString()}.log`  
+      fs.writeFileSync(fileName, errorMessage)
+    } catch (error) {
+      logger.error('Cannot create log file for queue errors')
+      logger.error(error)
+    }
+
+  }
 }

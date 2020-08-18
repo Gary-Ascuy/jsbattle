@@ -113,7 +113,7 @@ class RankTable {
     let entity = this.data.find((e) => e.id == id);
     entity.fights_error = fightsError;
     try {
-     this.logger.error(`Updating fail ${JSON.stringify(entity)} items`)
+     this.logger.info(`Updating fail ${JSON.stringify(entity)} items`)
      }
      catch (err) {
        this.logger.error(err)
