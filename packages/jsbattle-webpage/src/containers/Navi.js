@@ -80,6 +80,20 @@ export class Navi extends React.Component {
           </a>
         </li>
         <li className="nav-item">
+          <a
+            className={pathname.startsWith('/competition') ? activeClasses : inactiveClasses}
+            href="#/competition">
+            Competition
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className={pathname.startsWith('/news') ? activeClasses : inactiveClasses}
+            href="#/news">
+            News
+          </a>
+        </li>   
+        <li className="nav-item">
           <a className={inactiveClasses} href="./docs" target="_blank">
             Docs
           </a>

@@ -104,6 +104,9 @@ export class SignInScreen extends React.Component {
                 <i className="fas fa-sign-in-alt float-left" style={{marginTop: '0.3em' }}></i> Continue as Guest
               </a>
             </div>
+            <div>
+                <h4>The Championship is now open! Click <a href="#/competition">here</a> for details</h4>
+            </div>
           </div>
       </FullRow>;
   }
