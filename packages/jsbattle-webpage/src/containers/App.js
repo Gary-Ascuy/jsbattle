@@ -3,6 +3,8 @@ import {Route, Redirect, HashRouter as Router} from 'react-router-dom';
 import {connect} from 'react-redux';
 import ChallengeListScreen from './ChallengeListScreen.js';
 import ChallengeScreen from './ChallengeScreen.js';
+import CompetitionScreen from './CompetitionScreen.js';
+import NewsScreen from './NewsScreen.js';
 import ScriptListScreen from './ScriptListScreen.js';
 import SandboxScreen from './SandboxScreen.js';
 import LeagueScreen from './LeagueScreen.js';
@@ -60,6 +62,8 @@ class App extends Component {
               <Route path="/" component={ErrorPanel} />
               <Route exact path="/challenge/:id" component={ChallengeScreen} />
               <Route exact path="/challenge" component={ChallengeListScreen} />
+               <Route exact path="/news" component={NewsScreen} />
+              <Route exact path="/competition" component={CompetitionScreen} />
               <Route exact path="/sandbox/:name" component={SandboxScreen} />
               <Route exact path="/sandbox" component={ScriptListScreen} />
               <Route exact path="/league" component={LeagueScreen} />
