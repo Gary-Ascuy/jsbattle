@@ -33,7 +33,7 @@ export class RegisterScreen extends React.Component {
           <form id="register-form">
             <div className="form-group">
               <label htmlFor="username"><i className="fas fa-user"></i> User Name</label>
-              <input disabled={this.props.isLoading} type="text" ref={this.usernameInput} className="form-control form-control-lg" id="username" disabled="disabled" defaultValue={this.props.username} />
+              <input disabled={this.props.isLoading} type="text" ref={this.usernameInput} className="form-control form-control-lg" id="username" placeholder="Old Jala Account username e.g. 'gary ascuy'" defaultValue={this.props.username} />
             </div>
             <div className="form-group">
               <label htmlFor="displayname"><i className="fas fa-user-tag"></i> Display Name</label>
@@ -50,7 +50,7 @@ export class RegisterScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  username: state.auth.profile.username || '',
+  username: '',
   displayName: state.auth.profile.displayName || '',
   isLoading: state.loading.PROFILE_REGISTER,
 });
