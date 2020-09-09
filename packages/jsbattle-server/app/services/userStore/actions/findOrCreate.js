@@ -15,6 +15,10 @@ module.exports = async function(ctx) {
     throw new ValidationError('user.provider parameter is required', 400);
   }
 
+  // First User Creation, @ it is not required
+  const jalaMail = /\@jalasoft.com$/ig
+  user.username = user.username.replace(jalaMail, '')
+
   let response;
   response = await ctx.call('userStore.find', {query: {
     extUserId: user.extUserId
