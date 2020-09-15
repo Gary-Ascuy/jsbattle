@@ -32,7 +32,7 @@ export class CompetitionScreen extends React.Component {
                     <li>During the <i>Sign In Period</i> the participants need to register to the championship using <a href="https://forms.gle/tQcu14VTbDfTw4Lx9">this registration form</a></li>
                     <li>The competition site will be available for tank training and experimientation to everybody (including <i>guest access</i>)</li>
                     <li>The <i>Jalasof't SSO Login</i> option will be available during all the duration of the event so Jalasoft empoyees can safely store their tank code.</li>
-                    <li>On Sept 3rd 2020 the <i>tanks registry stage</i> will be enabled: during this period the battle league (melee league) will be launched and participants shall join their tank to this league</li>
+                    <li>On Sept 15th 2020 the <i>tanks registry stage</i> will be enabled: during this period the battle league (melee league) will be launched and participants shall join their tank to this league</li>
                     <li>After the tank registry period, the <a href="mailto:jsbattle@jalasoft.com">Jury Committee</a> will review the code sent by participants (verify code fullfills with the <i>competition rules</i> and <i>code of conduct</i>)</li>
                     <li>After this Jury review, the battle league will start with the approved tanks.</li>
                     <li>The league is based on a <i>all-against-all</i> mode (<a href="https://en.wikipedia.org/wiki/Melee">melee</a>)</li>
