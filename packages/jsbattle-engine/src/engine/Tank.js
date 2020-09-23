@@ -27,14 +27,14 @@ class Tank {
     this._id = id;
     this._name = aiDefinition.name;
     this._team =  null;
-    this._maxEnergy = 100;
+    this._maxEnergy = 300;
     this._energy = this._maxEnergy;
     this._x = 0;
     this._y = 0;
     this._lastX = 0;
     this._lastY = 0;
     this._angle = 0;
-    this._maxShield = 500;
+    this._maxShield = 2000;
     this._shield = this._maxShield;
     this._hasShield = false;
     this._maxEMP = 100;
@@ -60,7 +60,7 @@ class Tank {
     this._gunTimer = 0;
     this._shootingPower = 0;
     this._shootingType = 'normal';
-    this._specialBulletCounter = 2;
+    this._specialBulletCounter = 20;
     this._targetingAlarmTimer = 0;
     this._debugData = {};
     this._score = 0;
